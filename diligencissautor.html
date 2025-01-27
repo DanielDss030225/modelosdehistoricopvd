@@ -40,6 +40,22 @@
           .alert-fullscreen button:hover {
             background-color: #f0f0f0;
           }
+
+           /* Estilo responsivo para telas menores */
+    @media (max-width: 768px) {
+      .alert-fullscreen div {
+        padding: 15px; /* Reduz o padding para telas menores */
+      }
+
+      .alert-fullscreen p {
+        font-size: 1rem; /* Diminui o tamanho do texto */
+      }
+
+      #closeAlert {
+        font-size: 0.9rem; /* Ajusta o tamanho do botão */
+        padding: 8px 16px; /* Reduz o tamanho do botão */
+      }
+    }
         </style>
     </head>
 
@@ -52,10 +68,24 @@
   <!-- Div do alerta oculta inicialmente -->
   <div id="fullscreenAlert" class="alert-fullscreen" style="display: none;">
     <div>
-      <p>É preciso preencher pelo menos o RG da vítima!</p>
+      <p>É preciso preencher o NOME e RG da vítima!</p>
       <button id="closeAlert">Fechar</button>
     </div>
   </div>
+
+
+  <ul class="center">
+    <a href="index.html">
+      <li class="logotipo" >
+        <img class="imagem" src="logo.png">
+    
+       </li>
+       
+
+    </a>
+
+  </ul>
+ 
 
  
   <h2 id="titulopag"> Título </h2>
@@ -143,8 +173,18 @@
  
 
 <div class="buttongerar">
+ 
+  <ul>
+<a id="showAlert" onclick="teste()">
+  <li class="cardGerar">
 
-  <button id="showAlert" class="button" onclick="teste()" > Alterar os asteriscos pelos dados do formulário</button>
+    <p class="selction"> Atualizar Dados</p>
+  
+  </li>
+</a>
+    
+  </ul>
+
   
 
 </div>
@@ -154,7 +194,7 @@
 
 <div class="editordetexto">  
 
-  <fieldset class=""> 
+  <fieldset > 
     <legend> Edite seu histórico</legend>
     <div class="row">
     <div class="col-12">
@@ -442,12 +482,19 @@ get(dbRef)
  */
 
  function salvarDadosEmLista(DADOS, dados) {
-  const rgvitimavalor01 = document.getElementById("rgvitima").value; // Obtém o valor do campo
+  const rgvitimavalor01 = document.getElementById("rgvitima").value; 
+  const nomevitima = document.getElementById("nomevitima").value; 
   console.log("ID da vítima:", rgvitimavalor01);
+  console.log("Nome da vítima", nomevitima);
 
   if (!rgvitimavalor01) {
     mostrarAlerta()
     console.error("O ID da vítima está vazio. Verifique o campo de entrada.");
+    return;
+  }
+  if (!nomevitima) {
+    mostrarAlerta()
+    console.error("O nome da vítima está vazio. Verifique o campo de entrada.");
     return;
   }
 
