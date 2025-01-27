@@ -105,7 +105,7 @@ p {
     justify-content: center;
     align-items: center;
  }
- 
+
 /* Estilo padrão para telas maiores */
 .nav-list {
   flex-direction: row; /* Itens em linha */
@@ -117,7 +117,12 @@ p {
     flex-direction: column; /* Itens em coluna */
     align-items: center; /* Centralizar itens */
   }
-
+  ul {
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    padding: 15px;
+}
   .nav-list li a {
     display: block;
     width: 100%; /* Ocupa toda a largura */
