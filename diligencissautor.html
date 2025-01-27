@@ -66,106 +66,81 @@
 
   </script>
 
-  <div class="navclass">
 
-    <nav >
+ 
+      <fieldset> 
+        <legend> Digite os dados da vítima</legend>
       <ul> 
        <li>
-         <fieldset> 
-             <legend> Digite os dados da vítima</legend>
-             <div class="input01">
+      
+            
                  <input  class="tamanhorg" id="rgvitima"  type="text" placeholder="RG DA VÍTIMA" autofocus >                           
-                 <div>&nbsp </div>
-                 <button id="seuBotao" class="buttonObterDados" onclick="obterDadosDoFirebase()" >Atualizar</button>
-                 <div>&nbsp </div>
-                 <div>&nbsp </div>
-                 <div>&nbsp </div> 
-                 <input   id="nomevitima" type="text" placeholder="NOME DA VÍTIMA"   >                  
-                 <div>&nbsp </div>
-                <div>&nbsp </div>
-                <div>&nbsp </div>
-                <input   class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
-                <div>&nbsp </div>
-                <div>&nbsp </div>
-                <div>&nbsp </div>
-                 
-             </div>
-         </fieldset>
-         <div>&nbsp </div>
-
-         <fieldset> 
-           <legend> Digite os dados do autor</legend>
-           <div class="input01">
-             <input  id="rgautor"  class="tamanhorg" type="text" placeholder="RG DO AUTOR" >                           
- 
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-               <div>&nbsp </div>
-              
-               <input   id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
-                     
-               <div>&nbsp </div>
-              <div>&nbsp </div>
-              <div>&nbsp </div>
-              <input   class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
-              <div>&nbsp </div>
-              <div>&nbsp </div>
-              <div>&nbsp </div>
-                         
-           </div>
-       </fieldset>   
-       <div>&nbsp </div>
-       <fieldset> 
-        <legend> Dados complementares</legend>
-        <div class="input01">
-          <div class="redsorig">
-
-            
-          </div>
-
-       
- 
-            
-            <input   class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
-          
-
+                
          
-            <div>&nbsp </div>
-           <div>&nbsp </div>
-           <div>&nbsp </div>
-           <input  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
-           <div>&nbsp </div>
-           <div>&nbsp </div>
-           <div>&nbsp </div>
-                      
-        </div>
-    </fieldset> 
        
-     </li>       
-    </ul>   
- </nav> 
+     </li> 
+     <li> 
+      <input   id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
 
-  </div>
 
-  <div>&nbsp </div>
+     </li>
+           <li>
+            <input   class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
+
+           </li>     
   
+
+
+
+    </ul>  
+    </fieldset>
+    <fieldset> 
+      <legend> Digite os dados do autor</legend>
+    <ul>
+  <li>
+    <input  id="rgautor"  class="tamanhorg" type="text" placeholder="RG DO AUTOR" >                           
+
+  </li>
+  <li>
+    <input   id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
+
+
+  </li>
+  <li>
+    <input   class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
+
+  </li>
+    </ul>
+    </fieldset> 
+
+    <fieldset>
+      <legend> Dados complementares</legend>
+
+ <ul>
+
+
+
+<li>
+
+  <input   class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
+
+</li>
+
+<li>
+
+  <input  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
+
+</li>
+  
+</ul>
+    </fieldset>
+  
+ 
+ 
+    <div>&nbsp </div>
+
+
+ 
 
 <div class="buttongerar">
 

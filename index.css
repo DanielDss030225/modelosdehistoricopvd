@@ -5,8 +5,7 @@ body {
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+   
     text-align: center;
 
 
@@ -23,7 +22,7 @@ body {
   
   .dropdown-content a {
     color: black;
-    padding: 25px 25px;
+    padding: 20px 20px;
     text-decoration: none;
     display: block;
   }
@@ -37,21 +36,24 @@ body {
   .dropdown a:hover {background-color: #ddd;}
 
 input {
-    
-    padding: 15px;
+  width: 91%; /* Faz o input ocupar toda a largura do li */
+  padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
+  border-radius: 20px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
     text-decoration: none;
     display: flex;
-    height: 15px;
-    width: 237px;
+    height: 25px;
     font-size: 18px;
-          border: 1px solid #ccc;
+   border: 1px solid #ccc;
 
     outline: none; /* Remove o contorno (borda de foco) */
 
 }
+
 input:focus {
   border-color: #007BFF; /* Adiciona uma cor de borda personalizada no foco */
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Efeito de foco */
+
 }
 
 input::placeholder {
@@ -148,33 +150,41 @@ ul li:hover {
   
 }
 
-
-
 /* Estilo para dispositivos móveis (telas menores que 768px) */
 @media (max-width: 768px) {
   ul {
     display: block; /* Exibe os itens da lista verticalmente */
+    padding: 0;      /* Remove o padding do ul */
+    margin: 0;       /* Remove a margem do ul */
   }
+  .dropdown {
+    padding: 10px;
+   align-content: center;
+    text-align: center;
+align-items: center;
 
+  }
   ul li {
     margin-bottom: 10px; /* Espaçamento entre os itens da lista em dispositivos móveis */
-    width: 90%;
-
+    padding: 0;          /* Remove o padding do li */
+    width: 100%;         /* Garanta que o li ocupe 100% da largura do contêiner */
+    box-sizing: border-box; /* Garante que padding e borda não afetem a largura */
   }
-
+  
   input {
-    
-    padding: 15px;
-    text-decoration: none;
-    display: flex;
-    height: 15px;
-    width: 85%;
-    font-size: 18px;
-          border: 1px solid #ccc;
-
-    outline: none; /* Remove o contorno (borda de foco) */
-
-}
+    width: 92%; /* Faz o input ocupar toda a largura do li */
+    padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
+    border-radius: 20px; /* Bordas arredondadas */
+    font-size: 1rem; /* Tamanho da fonte */
+      text-decoration: none;
+      display: flex;
+      height: 25px;
+      font-size: 18px;
+     border: 1px solid #ccc;
+  
+      outline: none; /* Remove o contorno (borda de foco) */
+  
+  }
 }
 
 a {
