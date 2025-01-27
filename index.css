@@ -140,3 +140,14 @@ ul li:hover {
     padding: 8px 12px;
   }
 }
+
+a {
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ color:rgb(117, 92, 58);
+ text-decoration: none;
+
+}
