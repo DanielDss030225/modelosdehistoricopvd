@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Silva</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav> 
+   <ul> 
+     <li class="logo"> 
+      <img class="imagem" src="img/logo.png">
+      <div>&nbsp </div>
+      <div>&nbsp </div>
+      <div>&nbsp </div>
+
+       <h1> 
+        Modelos de Históricos Pvd
+       </h1> 
+     </li>
+     <li> </li>
+     <li> <div class="dropdown">
+        <input type="text" placeholder="Pesquisar.." id="myInput" onkeyup="filterFunction()">
+        <div id="myDropdown" class="dropdown-content">
+          <a href="diligencissautor.html">Diligência sem sucesso autor</a>
+          <a href="TESTE.html">Diligência sem sucesso vítima</a>
+          <a href="inclusaodavitima.html">Inclusão da vítima</a>
+          <a href="encaminhamentodavitima.html">Encaminhamento da vítima</a>
+          <a href="recusadeencaminhamentodavitima.html">Recusa de encaminhamento da vítima</a>
+          <a href="notificacaodoautor.html">Notificação do autor</a>
+          <a href="recusadavitima.html">Recusa da vítima</a>
+          <a href="apresentacaodaleiparaavitima.html">Apresentação da lei para a vítima</a>
+          <a href="apresentacaodaleiparaoautor.html">Apresentação da lei para o autor</a>
+          <a href="monitoramentodavitima.html">Monitoramento da vítima</a>
+          <a href="monitoramentodoautor.html">Monitoramento do autor</a>
+          <a href="contatocomtestemunha.html">Contato com testemunha</a>
+          <a href="encerramento.html">Encerramento com a vítima</a>
+                      
+        </div>
+      </div></li>
+    
+   </ul>
+
+    </nav>
+    <nav> 
+        <ul> 
+            <li>  
+                <a href="diligencissautor.html" >
+                <button id="bteste">  Diligência sem Sucesso Autor                 
+                </button>
+            </a>
+            </li>
+
+
+          <li>  
+            <a href="TESTE.html">
+            <button>  Diligência sem sucesso vítima           
+            </button>
+          </a>
+        </li>
+
+
+          <li>  
+            <a href="inclusaodavitima.html">
+            <button>  Inclusão da vítima             
+            </button>
+        </a>
+        </li>
+         
+        </ul>
+     
+         </nav>
+         <nav> 
+          <ul> 
+              <li>  
+                <a href="encaminhamentodavitima.html">
+                  <button>  Encaminhamento da vítima            
+                  </button>
+              </a>
+              </li>
+  
+  
+            <li>  
+              <a href="recusadeencaminhamentodavitima.html">
+              <button>  Recusa de encaminhamento da vítima         
+              </button>
+            </a>
+          </li>
+  
+  
+            <li>  
+              <a href="notificacaodoautor.html">
+              <button>  Notificação do autor           
+              </button>
+          </a>
+          </li>
+           
+          </ul>
+       
+           </nav>
+           <nav> 
+            <ul> 
+                <li>  
+                  <a href="recusadavitima.html">
+                  <button> Recusa da vítima             
+                    </button>
+                </a>
+                </li>
+    
+    
+              <li>  
+                <a href="apresentacaodaleiparaavitima.html">
+                <button> Apresentação da lei para a vítima          
+                </button>
+              </a>
+            </li>
+    
+    
+              <li>  
+                <a href="apresentacaodaleiparaoautor.html">
+                <button>  Apresentação da lei para o autor          
+                </button>
+            </a>
+            </li>
+             
+            </ul>
+         
+             </nav>
+             <nav> 
+              <ul> 
+                  <li>  
+                    <a href="monitoramentodavitima.html">
+                    <button> Monitoramento da vítima               
+                      </button>
+                  </a>
+                  </li>
+      
+      
+                <li>  
+                  <a href="monitoramentodoautor.html">
+                  <button> Monitoramento do autor           
+                  </button>
+                </a>
+              </li>
+      
+      
+                <li>  
+                  <a href="contatocomtestemunha.html">
+                  <button>  Contato com testemunha        
+                  </button>
+              </a>
+              </li>
+               
+              </ul>
+           
+               </nav>
+
+               <nav> 
+                <ul> 
+                    <li>  
+                        <a href="encerramento.html">
+                      <button>Encerramento com a vítima              
+                        </button>
+                    </a>
+                    </li>
+        
+        
+                  <li>  
+                  
+
+    <p > Deus é necessário! </p>
+
+                </li>
+        
+                  <li>  
+                   
+                    
+
+
+                    
+                </li>
+                 
+                </ul>
+             
+                 </nav>
+         
+
+<script>
+    function foinesse() { 
+        getSelection
+
+    }
+</script>
+
+ <script>
+      function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+          txtValue = a[i].textContent || a[i].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+          } else {
+            a[i].style.display = "none";
+          }
+        }
+      }
+</script>
+
+<script src="docjs/clicou.js">
+
+</script>
+</body>
+</html>
+
