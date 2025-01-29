@@ -1,9 +1,22 @@
+
 body {
-    background-color: rgb(238, 224, 147);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+
+  background-color: rgb(170, 134, 86);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px; 
+  padding: 0px;
+  width: 100%;
+  height: 100%;  
+  
+ 
 }
 
+.fundotela {
+  background-color: rgb(238, 224, 147);
+  
+  
+  
+  }
 
 
   input {
@@ -41,41 +54,16 @@ h2 {
 
 
 
-div .virgula {
-    font-size: 100px;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    height: 10px;
-    width: 350px;
-    font-size: 14px;
-
-}
 
 
-
-.modeloh {
-   
-   font-size: 14px;
-   padding: 6px 9px;
-  
-   font-family: Arial;
-   width: 300px;
-   
-
-
-
-}
-
-  
 
 .descricao {
     outline: none;
     font-family: Arial;
 
-     width: 700px;
+     width: 93%;
     height: 600px;
- 
+
     border-radius: 20px; /* Bordas arredondadas */
     border: 1px solid #ccc;
 
@@ -87,6 +75,7 @@ div .virgula {
 
   
 }
+
 
 .descricao:focus {
     border-color: #007BFF; /* Adiciona uma cor de borda personalizada no foco */
@@ -101,9 +90,11 @@ div .virgula {
   }
 
 fieldset {
-    width: 1%;
-    height: 100%;
- 
+align-items: center;
+display: flex;
+max-width: 1200px; /* Limita a largura máxima */
+align-content: center;
+
 }
 
 
@@ -112,6 +103,8 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
   }
 
 
@@ -122,53 +115,39 @@ fieldset {
 
 }
 
+footer {
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(170, 134, 86);
+  padding: 0;
 
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
- .navclass {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footerp {
+ font-size: 20px;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+color: rgb(0, 0, 0);
+}
 
- }
- 
+.footerdiv {
+  width: 100%;
 
- footer {
-    position: absolute;
-    width: 100%;
-    height: 20%;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(170, 134, 86);
-    padding: 8px 8px; /* Espaçamento interno */
-
- }
-
- .footerp {
-   font-size: 20px;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  color: rgb(0, 0, 0);
- }
-
- .footerdiv {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
  .buttonObterDados {
     padding: 10px;
    
-   
+    width: 100%;
+
     height: 35px;
     width: 80px;
     font-size: 14px;
@@ -182,22 +161,22 @@ fieldset {
  
 
  
+ ul li {
+  width: 100%;
 
-ul li {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    margin: 8px 10px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 1rem; /* Tamanho da fonte responsivo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    height: 40px;
-    width: 265px;
-    align-items: center;
-  }
-  
-  
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin: 20px 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  height: 39px;
+  width:100%;
+  align-items: center;
+
+}
+
   
   
   
@@ -206,16 +185,17 @@ ul li {
   }
   
     
-   /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
-   ul {
-    display: flex;  /* Exibe os itens da lista em linha */
-    list-style-type: none; /* Remove os marcadores padrão */
-    padding: 0;
-    margin: 0;
-    
-    justify-content: space-between;
-    
-  }
+ /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
+ ul {
+  display: flex;  /* Exibe os itens da lista em linha */
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+  justify-content: center;
+  margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
+  width: 100%;
+  
+}
+
   
 .logotipo {
 
@@ -233,6 +213,10 @@ ul li {
 }
 
 
+.elementoP p {
+  width: 100%;
+  height: 100%;
+}
 img {
     height: 100px;
     width:100px;
@@ -257,6 +241,12 @@ img {
 
 
 
+.fundotela {
+  background-color: rgb(238, 224, 147);
+  
+  
+  
+  }
 
 
 /* Estilo para dispositivos móveis (telas menores que 768px) */
@@ -265,6 +255,9 @@ img {
       display: block; /* Exibe os itens da lista verticalmente */
       padding: 0;      /* Remove o padding do ul */
       margin: 0;       /* Remove a margem do ul */
+    }
+    body {
+      min-width: 400px; /* Define um tamanho mínimo adequado para dispositivos móveis */
     }
     .dropdown {
       padding: 10px;
@@ -295,36 +288,14 @@ img {
         outline: none; /* Remove o contorno (borda de foco) */
     
     }
-    
     fieldset {
-        width: 93%;
-        height: 100%;
-        align-items: center;
-        text-align: center;
-        align-self: center;
-        align-content: center;     
-    }
-    .descricao {
-    
-        width: 85%;
-    
-     
-        outline: none;
-        font-family: Arial;
-    
-        height: 600px;
-     
-        border-radius: 20px; /* Bordas arredondadas */
-        border: 1px solid #ccc;
-    
-        padding: 20px 20px; /* Adiciona um pouco de espaçamento interno */
-        text-decoration: none;
-        display: flex;
-        font-size: 18px;
-        outline: none; /* Remove o contorno (borda de foco) */
-    
+      align-items: center;
+      display: block;
+      align-content: center;
       
-    }
+      }
+      
+
     .logotipo {
 
         background-color: #ffffff;
@@ -355,12 +326,30 @@ img {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s ease;
         height: 60px;
-        width: 400px;
+        width: 96%;
         align-items: center;
         cursor: pointer;
     
     }
     
+    .descricao {
+      outline: none;
+      font-family: Arial;
+  
+       width: 90%;
+      height: 600px;
+  
+      border-radius: 20px; /* Bordas arredondadas */
+      border: 1px solid #ccc;
+  
+      padding: 20px 20px; /* Adiciona um pouco de espaçamento interno */
+      text-decoration: none;
+      display: flex;
+      font-size: 18px;
+      outline: none; /* Remove o contorno (borda de foco) */
+  
+    
+  }
       
   }
   

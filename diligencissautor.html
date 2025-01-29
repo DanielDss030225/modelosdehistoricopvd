@@ -9,11 +9,11 @@
           /* Estiliza o fundo do alerta */
           .alert-fullscreen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            top: 23%;
+            left: 23%;
+            width: 50%;
+            height: 50%;
+            background-color: rgba(72, 82, 224, 0.8); /* Fundo semi-transparente */
             color: white;
             display: flex;
             justify-content: center;
@@ -23,6 +23,7 @@
             font-size: 1.5rem;
             text-align: center;
             padding: 20px;
+            border-radius: 20px;
           }
       
           /* Botão de fechar */
@@ -64,16 +65,17 @@
 <body>
 
   
+ <div class="fundotela">
 
   <!-- Div do alerta oculta inicialmente -->
   <div id="fullscreenAlert" class="alert-fullscreen" style="display: none;">
-    <div>
+    <div class="elementoP" >
       <p>É preciso preencher o NOME e RG da vítima!</p>
       <button id="closeAlert">Fechar</button>
     </div>
   </div>
 
-
+<div class="maxlargura">
   <ul class="center">
     <a href="index.html">
       <li class="logotipo" >
@@ -98,35 +100,41 @@
 
 
  
-      <fieldset> 
-        <legend> Digite os dados da vítima</legend>
-      <ul> 
-       <li>
-      
-            
-                 <input  class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
-                
-         
-       
-     </li> 
-     <li> 
-      <input   id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
 
-
-     </li>
-           <li>
-            <input   class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
-
-           </li>     
-  
-
-
-
-    </ul>  
-    </fieldset>
+  <ul> 
     <fieldset> 
-      <legend> Digite os dados do autor</legend>
+      <legend> Digite os dados da vítima</legend>
+   <li>
+  
+        
+             <input  class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
+            
+     
+   
+ </li> 
+ <li> 
+  <input   id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
+
+
+ </li>
+       <li>
+        <input   class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
+
+       </li>     
+
+
+
+      </fieldset>
+</ul>  
+
+<div>&nbsp </div>
+
+     
+ 
+    
     <ul>
+      <fieldset> 
+        <legend> Digite os dados do autor</legend>
   <li>
     <input  id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
 
@@ -140,13 +148,16 @@
     <input   class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
 
   </li>
-    </ul>
+    
     </fieldset> 
+  </ul>
 
+  <div>&nbsp </div>
+
+ <ul>
     <fieldset>
       <legend> Dados complementares</legend>
 
- <ul>
 
 
 
@@ -162,9 +173,9 @@
 
 </li>
   
-</ul>
+
     </fieldset>
-  
+  </ul>
  
  
     <div>&nbsp </div>
@@ -175,7 +186,7 @@
 <div class="buttongerar">
  
   <ul>
-<a id="showAlert" onclick="teste()">
+<a id="showAlert">
   <li class="cardGerar">
 
     <p class="selction"> Atualizar Dados</p>
@@ -191,9 +202,13 @@
 
 
 <div>&nbsp </div>
+<ul>
 
-<div class="editordetexto">  
 
+
+
+
+  <div class="editordetexto">  
   <fieldset > 
     <legend> Edite seu histórico</legend>
     <div class="row">
@@ -202,10 +217,19 @@
         <textarea  name="descricao" id="idteste" cols="60" rows="10" placeholder="Modelo de histórico" class="descricao"></textarea>
     </div>
 
-</div>
 
 
 </fieldset>
+</div>
+</ul>
+
+  
+</div>
+
+
+<div>&nbsp </div>
+<div>&nbsp </div>
+
 
 <script>
   document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR *********, RG: *********, (PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, REGISTRADO EM SEU DESFAVOR POR SUA (EX-)COMPANHEIRA, *********, *********.)  (PARA APRESENTÁ-LO A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, *********.) (PARA MONITORAR O CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, *********.)" +  "\n\n"  + 
@@ -249,14 +273,19 @@
 
    window.obterDadosDoFirebase = function (path, dados)  {
 
- 
-    
+
   const rgvitimavalor = document.getElementById("rgvitima").value  
   console.log(rgvitimavalor);   
-  
+
+   
+  if (!rgvitimavalor) {
+    
+    console.error("O banco de dados tentou obter os valores, mas nenhum dado foi encontrato!");
+    return;
+  }
+ 
   
    
-  
   const valorDoInput = "DADOS/" + rgvitimavalor;
   // Referência para o nó específico no Firebase
 
@@ -572,7 +601,8 @@ document.getElementById("showAlert").addEventListener("click", () => {
 <script>
    function teste() {
 
-  
+   
+ 
 let titulo = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO"
 let mensagem01 = " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR "
 let nomeautor = document.getElementById("nomeautor").value  
@@ -617,24 +647,16 @@ document.getElementById("idteste").value = titulo  + "\n\n" + mensagem01 + nomea
 
 
 
-<div>&nbsp </div>
-<div>&nbsp </div>
-<div>&nbsp </div>
-<div>&nbsp </div>
-                 <div class="footerdiv"> 
-                  <div>&nbsp </div>
-                  <div>&nbsp </div>
-                  <footer>
-                  
-                    <p class="footerp">&nbsp &nbsp  </p>
-                    <p class="footerp">     Este sistema foi desenvolvido para facilitar o filtro e edição dos modelos de históricos criados pela Sra. Bruna.
-                    </p>
-                    <p class="footerp"> &nbsp &nbsp </p>
-                
-                </footer>
-                <div>&nbsp </div>
-                <div>&nbsp </div>
-                </div>
+
+</div>
 
 </body>
+<footer>
+                  
+  <p class="footerp">&nbsp &nbsp  </p>
+  <p class="footerp">     Este sistema foi desenvolvido para facilitar o filtro e edição dos modelos de históricos criados pela Sra. Bruna.
+  </p>
+  <p class="footerp"> &nbsp &nbsp </p>
+
+</footer>
 </html>
