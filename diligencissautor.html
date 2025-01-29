@@ -107,18 +107,18 @@
    <li>
   
         
-             <input  class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
+             <input onblur="this.value = this.value.trim();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
             
      
    
  </li> 
  <li> 
-  <input   id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
+  <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
 
 
  </li>
        <li>
-        <input   class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
 
        </li>     
 
@@ -136,16 +136,16 @@
       <fieldset> 
         <legend> Digite os dados do autor</legend>
   <li>
-    <input  id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
+    <input onblur="this.value = this.value.trim();" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
 
   </li>
   <li>
-    <input   id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
+    <input onblur="this.value = this.value.trim();"  id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
 
 
   </li>
   <li>
-    <input   class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
 
   </li>
     
@@ -163,13 +163,13 @@
 
 <li>
 
-  <input   class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
+  <input  onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
 
 </li>
 
 <li>
 
-  <input  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
+  <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
 
 </li>
   
