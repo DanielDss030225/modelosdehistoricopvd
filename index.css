@@ -15,6 +15,7 @@ body {
    
     text-align: center;
 
+    width: 100%;
 
   }
   
@@ -22,7 +23,7 @@ body {
     
     display: none;
     position: absolute;
-    min-width: 96%;
+    width: 98%;
     background-color:  rgb(170, 134, 86);
     font-size: 18px;
   }
@@ -36,6 +37,8 @@ body {
     margin: 0px;
     text-decoration: none;
     display: block;
+    width: 98%;
+
   }
   
   .dropdown:hover .dropdown-content {
@@ -225,7 +228,7 @@ padding-inline: 4px;
   }
 
   input {
-    width: 91%; /* Faz o input ocupar toda a largura do li */
+    width: 88%; /* Faz o input ocupar toda a largura do li */
 padding-inline: 20px;
 
     border-radius: 20px; /* Bordas arredondadas */

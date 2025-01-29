@@ -27,7 +27,7 @@ body {
     padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
     text-decoration: none;
     display: flex;
-    width: 91%; /* Faz o input ocupar toda a largura do li */
+    width: 89%; /* Faz o input ocupar toda a largura do li */
     font-size: 1rem; /* Tamanho da fonte */
     outline: none; /* Remove o contorno (borda de foco) */
 
@@ -162,7 +162,6 @@ color: rgb(0, 0, 0);
 
  
  ul li {
-  width: 100%;
 
   background-color: #ffffff;
   border: 1px solid #ddd;
