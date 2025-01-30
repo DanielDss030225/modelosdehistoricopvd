@@ -43,4 +43,10 @@
        
 }
 
+document.getElementById("DSSA").addEventListener("click", function(event) {
+  localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
+});
 
+document.getElementById("DSSV").addEventListener("click", function(event) {
+  localStorage.setItem("nome", "ADDPASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
+});

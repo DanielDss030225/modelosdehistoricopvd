@@ -37,7 +37,7 @@ body {
     margin: 0px;
     text-decoration: none;
     display: block;
-    width: 98%;
+    width: 100%;
 
   }
   
@@ -154,7 +154,7 @@ ul li:hover {
   padding: 0;
   justify-content: space-between;
   width: 100%;      /* Define a largura do conteúdo (80% da página) */
-  max-width: 900px; /* Limita a largura máxima */
+  max-width: 1200px; /* Limita a largura máxima */
   margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
   
 }

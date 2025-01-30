@@ -47,11 +47,15 @@ input:focus {
 
 h2 {
     text-align: center;
+width: 100%;
+
+
 }
 
 
-
-
+.larguraDoTitulo {
+  display: flex;
+}
 
 
 

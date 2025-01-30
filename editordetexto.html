@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daniel Silva</title>
+        <link rel="stylesheet" href="diligencissautor.css">
+        <style>
+          /* Estiliza o fundo do alerta */
+          .alert-fullscreen {
+            position: fixed;
+            top: 23%;
+            left: 23%;
+            width: 50%;
+            height: 50%;
+            background-color: rgba(72, 82, 224, 0.8); /* Fundo semi-transparente */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+            border-radius: 20px;
+          }
+      
+          /* Botão de fechar */
+          .alert-fullscreen button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: black;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+      
+          .alert-fullscreen button:hover {
+            background-color: #f0f0f0;
+          }
+
+           /* Estilo responsivo para telas menores */
+    @media (max-width: 768px) {
+      .alert-fullscreen div {
+        padding: 15px; /* Reduz o padding para telas menores */
+      }
+
+      .alert-fullscreen p {
+        font-size: 1rem; /* Diminui o tamanho do texto */
+      }
+
+      #closeAlert {
+        font-size: 0.9rem; /* Ajusta o tamanho do botão */
+        padding: 8px 16px; /* Reduz o tamanho do botão */
+      }
+    }
+        </style>
+    </head>
+
+
+  
+<body>
+
+  
+ <div class="fundotela">
+
+  <!-- Div do alerta oculta inicialmente -->
+  <div id="fullscreenAlert" class="alert-fullscreen" style="display: none;">
+    <div class="elementoP" >
+      <p>É preciso preencher o NOME e RG da vítima!</p>
+      <button id="closeAlert">Fechar</button>
+    </div>
+  </div>
+
+<div class="maxlargura">
+  <ul class="center">
+    <a href="index.html">
+      <li class="logotipo" >
+        <img class="imagem" src="logo.png">
+    
+       </li>
+       
+
+    </a>
+
+  </ul>
+ 
+
+ <div class="larguraDoTitulo">
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+
+  <h2 id="titulopag"> &nbsp &nbsp Carregando Título &nbsp &nbsp </h2>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+  <div>&nbsp </div>
+
+ </div>
+
+  
+
+
+ 
+
+  <ul> 
+    <fieldset> 
+      <legend> Digite os dados da vítima</legend>
+   <li>
+  
+        
+             <input onblur="this.value = this.value.trim();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
+            
+     
+   
+ </li> 
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
+
+
+ </li>
+       <li>
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
+
+       </li>     
+
+
+
+      </fieldset>
+</ul>  
+
+<div>&nbsp </div>
+
+     
+ 
+    
+    <ul>
+      <fieldset> 
+        <legend> Digite os dados do autor</legend>
+  <li>
+    <input onblur="this.value = this.value.trim();" id="rgautor"  class="tamanhorg" type="number" placeholder="RG DO AUTOR" >                           
+
+  </li>
+  <li>
+    <input onblur="this.value = this.value.trim();"  id="nomeautor" type="text" placeholder="NOME DO AUTOR"   > 
+
+
+  </li>
+  <li>
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="telefoneautor" type="tel" placeholder="TELEFONE DO AUTOR" > 
+
+  </li>
+    
+    </fieldset> 
+  </ul>
+
+  <div>&nbsp </div>
+
+ <ul>
+    <fieldset>
+      <legend> Dados complementares</legend>
+
+
+
+
+<li>
+
+  <input  onblur="this.value = this.value.trim();" class="ocorrencia"  id="redsorigem" type="text" placeholder="REDS DE ORIGEM"   > 
+
+</li>
+
+<li>
+
+  <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="medidaprotetiva" type="tel" placeholder="MEDIDA PROTETIVA" > 
+
+</li>
+  
+
+    </fieldset>
+  </ul>
+ 
+ 
+    <div>&nbsp </div>
+
+
+ 
+
+<div class="buttongerar">
+ 
+  <ul>
+<a id="showAlert">
+  <li class="cardGerar">
+
+    <p class="selction"> Atualizar Dados</p>
+  
+  </li>
+</a>
+    
+  </ul>
+
+  
+
+</div>
+
+
+<div>&nbsp </div>
+<ul>
+
+
+
+
+
+  <div class="editordetexto">  
+  <fieldset > 
+    <legend> Edite seu histórico</legend>
+    <div class="row">
+    <div class="col-12">
+
+        <textarea  name="descricao" id="idteste" cols="60" rows="10" placeholder="Modelo de histórico" class="descricao"></textarea>
+    </div>
+
+
+
+</fieldset>
+</div>
+</ul>
+
+  
+</div>
+
+
+<div>&nbsp </div>
+<div>&nbsp </div>
+
+
+
+</div>
+<div>&nbsp </div>
+
+
+
+
+
+
+
+<script type="module">
+    
+    // Importar as funções necessárias do SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { set, getDatabase, ref, get, } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+ 
+  // Configuração do Firebase
+  const firebaseConfig = {
+      apiKey: "AIzaSyDQWO9csuYqrd0JyXa_cs4f3jAsjQAEWSw",
+      authDomain: "meu-site-fd954.firebaseapp.com",
+      projectId: "meu-site-fd954",
+      storageBucket: "meu-site-fd954.firebasestorage.app",
+      messagingSenderId: "1062346912662",
+      appId: "1:1062346912662:web:0f41873e12965c545363b7",
+      measurementId: "G-5HXX5ZZKER"
+    };
+       // Inicializar o Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+   
+
+
+
+
+   window.obterDadosDoFirebase = function (path, dados)  {
+
+
+  const rgvitimavalor = document.getElementById("rgvitima").value  
+  console.log(rgvitimavalor);   
+
+   
+  if (!rgvitimavalor) {
+    
+    console.error("O banco de dados tentou obter os valores, mas nenhum dado foi encontrato!");
+    return;
+  }
+ 
+  
+   
+  const valorDoInput = "DADOS/" + rgvitimavalor;
+  // Referência para o nó específico no Firebase
+
+  const dbRef = ref(db, valorDoInput);
+
+get(dbRef)
+    .then((snapshot) => {
+      const lista = snapshot.val();
+      console.log(lista);// Exibe a lista completa no console
+  
+        //AJUSTA VALOR PARA O VALOR DO SNAPSHOT
+          const valor = snapshot.val();
+          
+  //FUNÇÃO QUE CONVERTE UMA LISTA JSON PARA ARRAY
+  function converterParaArray(valor) {
+    // Mapeia a lista, substituindo valores nulos por "NULL" e garantindo que todos sejam strings
+    return valor.map(item => item === null ? "NULL" : String(item));
+  
+  }
+  // Exemplo de uso
+  const valorTeste = valor; // Obtém a lista do Firebase     
+  const valorLista = valorTeste;
+  const entrada = JSON.parse(valorLista); // Converte a string JSON em um array
+  const resultado = converterParaArray(entrada);
+  
+  console.log(resultado);
+   
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 0
+  function indice0(resultado, indice00) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice00 >= 0 && indice00 < resultado.length) {
+      return resultado[indice00];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista0 = resultado;
+  const indice00 = 0; // Índice do elemento que deseja obter
+  const elemento0 = indice0(lista0, indice00);
+  console.log(elemento0); // Saída: 
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 1
+  function indice1(resultado, indice11) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice11 >= 0 && indice11 < resultado.length) {
+      return resultado[indice11];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista1 = resultado;
+  const indice11 = 1; // Índice do elemento que deseja obter
+  const elemento1 = indice1(lista1, indice11);
+  console.log(elemento1); // Saída:
+  
+  
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 2
+  function indice2(resultado, indice22) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice22 >= 0 && indice22 < resultado.length) {
+      return resultado[indice22];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista2 = resultado;
+  const indice22 = 2; // Índice do elemento que deseja obter
+  const elemento2 = indice2(lista2, indice22);
+  console.log(elemento2); // Saída: 
+  
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 3
+  function indice3(resultado, indice33) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice33 >= 0 && indice33 < resultado.length) {
+      return resultado[indice33];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista3 = resultado;
+  const indice33 = 3; // Índice do elemento que deseja obter
+  const elemento3 = indice3(lista3, indice33);
+  console.log(elemento3); // Saída: 
+  
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 4
+  function indice4(resultado, indice44) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice44 >= 0 && indice44 < resultado.length) {
+      return resultado[indice44];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista4 = resultado;
+  const indice44 = 4; // Índice do elemento que deseja obter
+  const elemento4 = indice3(lista4, indice44);
+  console.log(elemento4); // Saída: 
+  
+  
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 5
+  function indice5(resultado, indice55) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice55 >= 0 && indice55 < resultado.length) {
+      return resultado[indice55];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista5 = resultado;
+  const indice55 = 5; // Índice do elemento que deseja obter
+  const elemento5 = indice3(lista5, indice55);
+  console.log(elemento5); // Saída: 
+  
+  
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 6
+  function indice6(resultado, indice66) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice66 >= 0 && indice66 < resultado.length) {
+      return resultado[indice66];
+    } else {
+      return "Índice fora do intervalo!";
+    }
+  }
+  // Exemplo de uso
+  const lista6 = resultado;
+  const indice66 = 6; // Índice do elemento que deseja obter
+  const elemento6 = indice3(lista6, indice66);
+  console.log(elemento6); // Saída: 
+
+  
+  
+  
+  //AJUSTA O VALOR DOS INPUTS
+  const input0 = document.getElementById('nomevitima'); // Substitua pelo ID do seu input
+    if (elemento0 == "NULL") {
+      input0.value = "";
+    } else {
+      input0.value = elemento0;
+    }
+  
+    const input1 = document.getElementById('telefonevitima'); // Substitua pelo ID do seu input
+    if (elemento1 == "NULL") {
+      input1.value = ""; 
+
+    } else {
+      input1.value = elemento1; 
+    }
+  
+  const input = document.getElementById('nomeautor'); // Substitua pelo ID do seu input
+    if (elemento3 == "NULL") {
+      input.value = ""; // Define o valor do campo de entrada com o valor obtido
+    } else {
+      input.value = elemento3; // Define o valor do campo de entrada com o valor obtido
+    }
+  
+    const input3 = document.getElementById('telefoneautor'); // Substitua pelo ID do seu input
+    if (elemento4 == "NULL") {
+      input3.value = ""; // Define o valor do campo de entrada com o valor obtido
+    } else {
+      input3.value = elemento4; // Define o valor do campo de entrada com o valor obtido
+    }
+  
+    
+    const input2 = document.getElementById('rgautor'); // Substitua pelo ID do seu input
+    if (elemento2 == "NULL") {
+      input2.value = ""; // Define o valor do campo de entrada com o valor obtido
+    } else {
+      input2.value = elemento2; // Define o valor do campo de entrada com o valor obtido
+    }
+  
+    const input5 = document.getElementById('redsorigem'); // Substitua pelo ID do seu input
+    if (elemento5 == "NULL") {
+      input5.value = ""; // Define o valor do campo de entrada com o valor obtido
+    } else {
+      input5.value = elemento5; // Define o valor do campo de entrada com o valor obtido
+    }
+    const input6 = document.getElementById('medidaprotetiva'); // Substitua pelo ID do seu input
+    if (elemento6 == "NULL") {
+      input6.value = ""; // Define o valor do campo de entrada com o valor obtido
+    } else {
+      input6.value = elemento6; // Define o valor do campo de entrada com o valor obtido
+    }
+
+
+
+    
+  
+  })
+
+
+}
+/**
+ * Salva dados no Firebase Realtime Database.
+ * @param {string} DADOS - Caminho no Realtime Database onde os dados serão salvos.
+ * @param {Object} dados - Objeto com os dados a serem salvos.
+ */
+
+ function salvarDadosEmLista(DADOS, dados) {
+  const rgvitimavalor01 = document.getElementById("rgvitima").value; 
+  const nomevitima = document.getElementById("nomevitima").value; 
+  console.log("ID da vítima:", rgvitimavalor01);
+  console.log("Nome da vítima", nomevitima);
+
+  if (!rgvitimavalor01) {
+    mostrarAlerta()
+    console.error("O ID da vítima está vazio. Verifique o campo de entrada.");
+    return;
+  }
+  if (!nomevitima) {
+    mostrarAlerta()
+    console.error("O nome da vítima está vazio. Verifique o campo de entrada.");
+    return;
+  }
+
+  
+  
+  const referencia = ref(db, `${DADOS}/${rgvitimavalor01}`); // Usa o rgvitimavalor01 como o nó principal
+
+  // Aqui, você converte o array de dados para uma string JSON
+  const dadosArray = JSON.stringify(dados); // Converte os dados para um formato de string JSON
+
+  // Salva os dados como uma string representando um array
+  set(referencia, dadosArray) // Salva a string JSON representando o array
+    .then(() => {
+      console.log("Dados salvos com sucesso no Realtime Database!");
+    })
+    .catch((erro) => {
+      console.error("Erro ao salvar dados no Realtime Database:", erro);
+    });
+}
+
+// Capturar os valores dos inputs e salvar no Firebase
+document.getElementById("showAlert").addEventListener("click", () => {
+  // Obter os valores dos inputs
+  const nomeVitima = document.getElementById("nomevitima").value;
+  const telefoneVitima = document.getElementById("telefonevitima").value;
+  const rgVitima = document.getElementById("rgvitima").value;
+
+  const nomeAutor = document.getElementById("nomeautor").value;
+  const telefoneAutor = document.getElementById("telefoneautor").value;
+  const rgAutorOutro = document.getElementById("rgautor").value;
+
+  const redsOrigem = document.getElementById("redsorigem").value;
+  const medidaProtetiva = document.getElementById("medidaprotetiva").value;
+
+  // Criar a lista dinamicamente com os valores capturados
+  const dadosLista = [
+    nomeVitima || "NULL",        // Usa "N/A" caso o input esteja vazio
+    telefoneVitima || "NULL",
+    rgAutorOutro || "NULL",
+    nomeAutor || "NULL",
+    telefoneAutor || "NULL",
+    redsOrigem || "NULL",
+    medidaProtetiva || "NULL",
+  ];
+
+  // Salvar no Firebase
+  
+  salvarDadosEmLista("DADOS", dadosLista);
+  teste()
+});
+
+   
+ 
+  </script>
+  <script>
+    // Seleciona os elementos
+    const alertBox = document.getElementById("fullscreenAlert");
+    const closeAlertButton = document.getElementById("closeAlert");
+
+    // Função para mostrar o alerta
+    function mostrarAlerta() {
+      alertBox.style.display = "flex"; // Mostra o alerta
+    }
+
+    // Fecha o alerta
+    closeAlertButton.addEventListener("click", () => {
+      alertBox.style.display = "none"; // Esconde o alerta
+    });
+
+ 
+  </script>
+  
+  
+  
+<script>
+
+const nome = localStorage.getItem("nome");
+  console.log(`Nome: ${nome}`);
+  document.getElementById("titulopag").textContent =  nome
+
+if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO") {
+  document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR *********, RG: *********, (PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, REGISTRADO EM SEU DESFAVOR POR SUA (EX-)COMPANHEIRA, *********, *********.)  (PARA APRESENTÁ-LO A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, *********.) (PARA MONITORAR O CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, *********, *********.)" +  "\n\n"  + 
+  " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR O ASSISTIDO. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO *********, MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." +  "\n\n" +
+  " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DO ASSISTIDO NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
+
+}
+
+
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA") {
+document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZADA" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR *********, RG *********,, (PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, EM DESFAVOR DE SEU (EX-)COMPANHEIRO, *********, RG *********,. (PARA APRESENTÁ-LA A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********,. (PARA MONITORAR O CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********,. (PARA ENCERRAR O MONITORAMENTO DO CASO ENVOLVENDO ELA E SEU (EX-)COMPANHEIRO, *********, RG *********,.)" +  "\n\n"  + 
+  " ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR A ASSISTIDA. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO *********, MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." +  "\n\n" +
+  " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DARPROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DA ASSISTIDA NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
+}
+
+
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO") {
+document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM *********, RG *********, PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº *********, EM DESFAVOR DE SEU (EX-) COMPANHEIRO, *********, RG *********." +  "\n\n"  + 
+  " A ASSISTIDA INFORMOU QUE: RELACIONA-SE (RELACIONOU-SE) COM O ASSISTIDO (POR) HÁ *********; (NÃO) RESIDEM NO MESMO IMÓVEL; (ESTÃO SEPARADOS HÁ *********); (NÃO) POSSUEM ********* FILHOS EM COMUM; REGISTROU ********* BOLETINS DE OCORRÊNCIA, EM VIRTUDE DE VIOLÊNCIA DOMÉSTICA; (NÃO) POSSUI MEDIDAS PROTETIVAS; O ASSISTIDO (NÃO) POSSUI ARMA DE FOGO." +  "\n\n" +
+  " ********* RESSALTOU QUE ********* JÁ COMETEU AGRESSÕES PSICOLÓGICAS ATRAVÉS DE *********; AGRESSÕES FÍSICAS ATRAVÉS DE *********; AGRESSÕES SEXUAIS ATRAVÉS DE *********; AGRESSÕES MORAIS ATRAVÉS DE *********; E AGRESSÕES PATRIMONIAIS AO *********. ELE FAZ (NÃO FAZ) USO DE BEBIDA ALCOÓLICA E DE DROGAS. ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE E PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. A ASSISTIDA APRESENTOU AS MEDIDAS PROTETIVAS, PROCESSO Nº *********, REFERENTE AO ********* JUIZADO DE VIOLÊNCIA DOMÉSTICA, EXPEDIDAS EM **/**/**, DISSE QUE ESTÁ TUDO BEM E QUE NÃO VOLTOU A TER NOVOS PROBLEMAS. (OU, A ASSISTIDA INFORMOU QUE NÃO SOLICITOU MEDIDAS PROTETIVAS EM DESFAVOR DO ASSISTIDO, ALEGANDO QUE NÃO HOUVE NECESSIDADE). (OU, A ASSISTIDA INFORMOU QUE SOLICITOU MEDIDAS PROTETIVAS E ESTÁ AGUARDANDO INTIMAÇÃO)." +  "\n\n" + "********* ASSINOU O TERMO DE INCLUSÃO E FOI ORIENTADA SOBRE AS PROVIDÊNCIAS A SEREM ADOTADAS DIANTE DE NOVOS EPISÓDIOS DE VIOLÊNCIA."+  "\n\n" + "DAREMOS CONTINUIDADE AO MONITORAMENTO DO CASO." +  "\n\n" + "REDS RELACIONADOS AO CASO: *********"
+}
+
+
+//PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO
+
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO") {
+document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO" + "\n\n" + " DURANTE VISITA (DE INCLUSÃO DA VÍTIMA NO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD)/ DE MONITORAMENTO DA VÍTIMA/ DE APRESENTAÇÃO DA LEI PARA A VÍTIMA/ DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REFERENTE AO CASO DE VIOLÊNCIA DOMÉSTICA ENVOLVENDO *********, RG *********, E *********, RG *********, FOI OBSERVADA A NECESSIDADE DE ENCAMINHAR A ASSISTIDA *********. ********* CONCORDOU COM O ENCAMINHAMENTO E ENTRARÁ EM CONTATO COM O ÓRGÃO PARA VERIFICAR AS CONDIÇÕES DE ATENDIMENTO. INSTA OBSERVAR QUE A EQUIPE ORIENTOU A ASSISTIDA, EXAUSTIVAMENTE, ACERCA DA DISPONIBILIDADE DOS ÓRGÃOS DE APOIO A MULHER, INFORMANDO-A DE QUE ELES PODERÃO SER ACIONADOS CONFORME O CASO EXIGIR OU ELA JULGUE NECESSÁRIO, E DA IMPORTÂNCIA DA ARTICULAÇÃO ENTRE AS INSTITUIÇÕES PARA DESESTIMULAR AS AÇÕES VIOLENTAS DO AGRESSOR. DESSA FORMA, FORNECEMOS A ELA UMA LISTA COM OS ENDEREÇOS E TELEFONES DOS PRINCIPAIS ÓRGÃOS DA REDE." +  "\n\n"  + "A ASSISTIDA ASSINOU O TERMO DE ENCAMINHAMENTO." +  "\n\n"  + "DAREMOS SEQUÊNCIA AO MONITORAMENTO. (O CASO NÃO SERÁ MONITORADO, POIS xxxxx RECUSOU SUA INCLUSÃO NO SPVD.)" + "\n\n" + "/////////FIM/////////" + "\n\n" + "SEGUE ALGUNS EXEMPLOS DE ÓRGÃOS PARA ENCAMINHAMENTO:" + "\n\n" + "- PARA A DELEGACIA ESPECIALIZADA NO ATENDIMENTO À MULHER (DEAM) PARA SOLICITAR MEDIDAS PROTETIVAS DE URGÊNCIA" + "\n"  + "- PARA O CENTRO RISOLETA NEVES DE ATENDIMENTO ÀS MULHERES VÍTIMAS DE VIOLÊNCIA DOMÉSTICA OU INTRAFAMILIAR (CERNA) PARA RECEBER ACOMPANHAMENTO PSICOSSOCIAL." + "\n" + "- PARA A DEFENSORIA PÚBLICA – NÚCLEO DE DEFESA DA MULHER (NUDEM) PARA RECEBER APOIO JURÍDICO." + "\n" + "- PARA O CENTRO ESPECIALIZADO DE ATENDIMENTO À MULHER (BENVINDA) PARA RECEBER ACOMPANHAMENTO PSICOSSOCIAL" + "\n" +
+"- PARA O xxxº JUIZADO DE VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER PARA OBTER CÓPIA DA DECISÃO QUE DEFERIU MEDIDAS PROTETIVAS EM SEU FAVOR." + '\n' + "- PARA A UNIDADE GESTORA DE MONITORAÇÃO ELETRÔNICA (UGME) PARA BUSCAR A UNIDADE PORTÁTIL DE RASTREAMENTO REFERENTE AO MONITORAMENTO ELETRÔNICO DO SEU EX-COMPANHEIRO - PARA A PROMOTORIA DE JUSTIÇA ESPECIALIZADA NO COMBATE À VIOLÊNCIA DOMÉSTICA E FAMILIAR CONTRA A MULHER."
+
+}
+
+
+//PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ENCAMINHAMENTO
+
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO") {
+document.getElementById("idteste").value =" PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO" + "\n\n" + "DURANTE VISITA (DE INCLUSÃO DA VÍTIMA NO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD)/ DE MONITORAMENTO DA VÍTIMA/ DE APRESENTAÇÃO DA LEI PARA A VÍTIMA/ DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REFERENTE AO CASO DE VIOLÊNCIA DOMÉSTICA ENVOLVENDO *********, RG *********, E *********, RG *********, FOI OBSERVADA A NECESSIDADE DE ENCAMINHAR A ASSISTIDA *********." + "\n\n" + "APESAR DA EQUIPE RESSALTAR A IMPORTÂNCIA DE BUSCAR O APOIO DO ÓRGÃO, ********* RECUSOU O ENCAMINHAMENTO E ALEGOU QUE *********. INSTA OBSERVAR QUE A EQUIPE ORIENTOU A ASSISTIDA, EXAUSTIVAMENTE, ACERCA DA DISPONIBILIDADE DOS ÓRGÃOS DE APOIO A MULHER, INFORMANDO-A DE QUE ELES PODERÃO SER ACIONADOS CONFORME O CASO EXIGIR OU ELA JULGUE NECESSÁRIO, E DA IMPORTÂNCIA DA ARTICULAÇÃO ENTRE AS INSTITUIÇÕES PARA DESESTIMULAR AS AÇÕES VIOLENTAS DO AGRESSOR E/OU AUXILIÁ-LA DURANTE O PROCESSO DE FORTALECIMENTO PSICOLÓGICO E DA QUEBRA DO CICLO DA VIOLÊNCIA CONJUGAL. DESSA FORMA, FORNECEMOS A ELA UMA LISTA COM OS ENDEREÇOS E TELEFONES DOS PRINCIPAIS ÓRGÃOS DA REDE." + "\n\n" + "DIANTE DA RECUSA EM SER ENCAMINHADA, ELA ASSINOU O TERMO DE ENCAMINHAMENTO QUE SERÁ ARQUIVADO NA PASTA DO CASO." + "\n\n" + "DAREMOS SEQUÊNCIA AO MONITORAMENTO. (O CASO NÃO SERÁ MONITORADO, POIS ********* RECUSOU SUA INCLUSÃO NO SPVD.)"
+
+}
+
+
+
+
+
+
+//FUNCAO QUE ALTERA O TEXTO
+   function teste() {
+
+let titulo = nome
+let mensagem01 = " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), PROCURAMOS POR "
+let nomeautor = document.getElementById("nomeautor").value  
+let rgautor = document.getElementById("rgautor").value 
+let ocorrencia  = document.getElementById("redsorigem").value 
+let nomevitima = document.getElementById("nomevitima").value 
+let rgvitima = document.getElementById("rgvitima").value 
+let telefoneautor = document.getElementById("telefoneautor").value 
+
+if (nomeautor == "") {
+  nomeautor = "*********"
+}
+if (rgautor == "") {
+  rgautor = "*********"
+}
+if (ocorrencia == "") {
+  ocorrencia = "*********"
+}
+if (nomevitima == "") {
+  nomevitima = "*********"
+}
+if (rgvitima == "") {
+  rgvitima = "*********"
+}
+if (telefoneautor == "") {
+  telefoneautor = "*********"
+}
+
+document.getElementById("idteste").value = titulo  + "\n\n" + mensagem01 + nomeautor + ", RG: " + rgautor 
++ ", (PARA NOTIFICÁ-LO SOBRE SUA INCLUSÃO NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + ", REGISTRADO EM SEU DESFAVOR POR SUA (EX-)COMPANHEIRA," + " " + nomevitima + ", " + rgvitima + ".)  (PARA APRESENTÁ-LO A LEI 11.340/2006 (LEI MARIA DA PENHA), DEVIDO AO MONITORAMENTO DO CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, "
++ nomevitima + ", " + rgvitima + ".) (PARA MONITORAR O CASO ENVOLVENDO ELE E SUA (EX-)COMPANHEIRA, " + nomevitima + ", " + rgvitima + ".)" + "\n\n" +
+" ESTA EQUIPE NÃO OBTEVE ÊXITO EM LOCALIZAR O ASSISTIDO. AINDA TENTAMOS CONTATO TELEFÔNICO ATRAVÉS DO NÚMERO" 
++ " " + telefoneautor + ", MAS A LIGAÇÃO FOI DIRECIONADA PARA A CAIXA POSTAL." 
++ "\n\n" + " DESSA FORMA, SERÃO REALIZADAS NOVAS TENTATIVAS DE CONTATO COM O INTUITO DE DAR PROSSEGUIMENTO AO PROTOCOLO DE ATENDIMENTO DO ASSISTIDO NO SERVIÇO DE PREVENÇÃO A VIOLÊNCIA DOMÉSTICA."
+
+
+ 
+}
+
+
+</script>
+
+
+
+</div>
+
+
+</body>
+
+
+<footer>
+                  
+  <p class="footerp">&nbsp &nbsp  </p>
+  <p class="footerp">     Este sistema foi desenvolvido para facilitar o filtro e edição dos modelos de históricos criados pela Sra. Bruna.
+  </p>
+  <p class="footerp"> &nbsp &nbsp </p>
+
+</footer>
+</html>
