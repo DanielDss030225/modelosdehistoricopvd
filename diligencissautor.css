@@ -45,6 +45,14 @@ input:focus {
   
   }
 
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 h2 {
     text-align: center;
 width: 100%;
@@ -289,7 +297,7 @@ img {
        border: 1px solid #ccc;
     
         outline: none; /* Remove o contorno (borda de foco) */
-    
+
     }
     fieldset {
       align-items: center;
@@ -384,4 +392,15 @@ img {
 
   .footerp {
     color: white;
+  }
+
+  h3{
+    font-size: 10px;
+    color: rgb(255, 0, 0);
+  }
+
+  .container {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
