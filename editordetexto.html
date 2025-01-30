@@ -119,13 +119,13 @@
    <li>
   
         
-             <input onblur="this.value = this.value.trim();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
+             <input onblur="this.value = this.value.trim(), obterDadosDoFirebase();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
             
      
    
  </li> 
  <li> 
-  <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" onfocus="obterDadosDoFirebase()" >                  
+  <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  
 
 
  </li>
