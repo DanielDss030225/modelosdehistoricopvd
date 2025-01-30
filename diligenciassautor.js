@@ -50,3 +50,14 @@ document.getElementById("DSSA").addEventListener("click", function(event) {
 document.getElementById("DSSV").addEventListener("click", function(event) {
   localStorage.setItem("nome", "ADDPASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO");
 });
+
+
+if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO") {
+  document.getElementById("idteste").value = " DIGITE O TEXTO AQUI"
+
+}
+
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA") {
+  document.getElementById("idteste").value = " DIGITE O TEXTO AQUI"
+}
+
