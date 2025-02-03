@@ -1,0 +1,269 @@
+
+body {
+
+  background-color: rgb(238, 224, 147);
+  font-family: Arial, Helvetica, sans-serif;
+
+ 
+}
+
+
+
+  input {
+    border-radius: 20px; /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    height: 19px;
+
+    padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
+    text-decoration: none;
+    display: flex;
+    width: auto; /* Faz o input ocupar toda a largura do li */
+    font-size: 1rem; /* Tamanho da fonte */
+    outline: none; /* Remove o contorno (borda de foco) */
+     margin-left: 10px;
+     margin-top: 20px;
+     margin-right: 10px;
+     margin-bottom: 10px;
+     justify-content: center;
+     align-items: center;
+    
+}
+
+input:focus {
+    border-color: #007BFF; /* Adiciona uma cor de borda personalizada no foco */
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Efeito de foco */
+  }
+  
+  input::placeholder {
+    color: #c5c3c3; /* Cor do texto do placeholder */
+    font-style: italic; /* Estilo opcional para o texto */
+  
+  }
+
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+ 
+ ul li {
+
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin: 20px 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.0s ease;
+  height: 100%;
+
+
+}
+
+  
+  
+  
+  ul li:hover {
+    transform: translateY(-0px); /* Pequeno efeito de hover */
+  }
+  
+    
+ /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
+ ul {
+  display: flex;  /* Exibe os itens da lista em linha */
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0;
+  margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+.elementoP p {
+  width: 100%;
+  height: 100%;
+}
+img {
+    height: 60px;
+    width:70px;
+  
+}
+  
+.cardGerar {
+    background-color: rgb(170, 134, 86);
+    border: 1px solid rgb(170, 134, 86);
+    margin: 8px 10px;
+    
+    padding: 5px 5px;
+    border-radius: 8px;
+    font-size: 18px; /* Tamanho da fonte responsivo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    height: 50px;
+    width: 400px;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+
+  .logintitle {
+    color:black;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  
+  div {
+    text-align: center;
+
+    
+  }
+  
+
+  .container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
+  }
+
+
+  button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: #007BFF;
+    border-color: #007BFF;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+/* Estilo para dispositivos móveis (telas menores que 768px) */
+@media (max-width: 768px) {
+    ul {
+      display: block; /* Exibe os itens da lista verticalmente */
+      padding: 0;      /* Remove o padding do ul */
+      margin: 0;       /* Remove a margem do ul */
+    }
+    body {
+      min-width: 400px; /* Define um tamanho mínimo adequado para dispositivos móveis */
+    }
+    .dropdown {
+      padding: 10px;
+     align-content: center;
+      text-align: center;
+  align-items: center;
+  
+    }
+
+
+    ul li {
+
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      margin: 20px 20px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+      transition: transform 0.0s ease;
+      height: 100%;
+    
+    
+    }
+    
+      
+      
+      
+      ul li:hover {
+        transform: translateY(-0px); /* Pequeno efeito de hover */
+      }
+      
+        
+     /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
+     ul {
+      display: flex;  /* Exibe os itens da lista em linha */
+      list-style-type: none; /* Remove os marcadores padrão */
+      padding: 0;
+      margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    
+    
+ 
+      
+
+    .logotipo {
+
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        margin: 8px 10px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 1rem; /* Tamanho da fonte responsivo */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+        height: 110px;
+        width: 110px;
+        align-items: center;
+    }
+    img {
+        height: 80px;
+        width:80px;
+    }
+
+    .cardGerar {
+        background-color: rgb(170, 134, 86);
+        border: 1px solid rgb(170, 134, 86);
+        margin: 8px 10px;
+        
+        padding: 5px 5px;
+        border-radius: 8px;
+        font-size: 18px; /* Tamanho da fonte responsivo */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+        height: 60px;
+        width: 96%;
+        align-items: center;
+        cursor: pointer;
+    
+    }
+    
+    .descricao {
+      outline: none;
+      font-family: Arial;
+  
+       width: 90%;
+      height: 600px;
+  
+      border-radius: 20px; /* Bordas arredondadas */
+      border: 1px solid #ccc;
+  
+      padding: 20px 20px; /* Adiciona um pouco de espaçamento interno */
+      text-decoration: none;
+      display: flex;
+      font-size: 18px;
+      outline: none; /* Remove o contorno (borda de foco) */
+  
+    
+  }
+      
+  }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Históricos PVD</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/png" href="logo.png"> 
+</head>
+<body>
+
+    
+   <div class="container"> 
+
+    <ul>
+        <li>
+        <div>
+         <img  src="logo.png">
+     
+        </div>
+        <p class="logintitle"> Faça login</p>
+
+        <form onsubmit="event.preventDefault(); login();">
+            <input type="email" id="email" placeholder="Digite seu email" required>  
+            <input type="password" id="password" placeholder="Digite sua senha" required>  
+            <button type="submit">Entrar</button>  
+        </form>
+    
+      
+     
+         </div>                       
+     </ul>
+   </div> 
+
+
+   <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyDQWO9csuYqrd0JyXa_cs4f3jAsjQAEWSw",
+    authDomain: "meu-site-fd954.firebaseapp.com",
+    projectId: "meu-site-fd954",
+    storageBucket: "meu-site-fd954.firebasestorage.app",
+    messagingSenderId: "1062346912662",
+    appId: "1:1062346912662:web:0f41873e12965c545363b7",
+    measurementId: "G-5HXX5ZZKER"
+  };
+  
+   firebase.initializeApp(firebaseConfig);
+   
+
+
+</script>
+<script src="login.js"></script>
+    
+
+</body>
+</html>
