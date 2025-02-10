@@ -261,9 +261,11 @@ img {
 
   .cabeçalho {
     background-color: rgb(170, 134, 86);
+
     display: flex;
-     justify-content: center; /* Centraliza horizontalmente */
-     align-items: center; /* Centraliza verticalmente */
+    justify-content: flex-end; /* Alinha os itens ao lado direito */
+    align-items: center; /* Alinha os itens verticalmente */
+    padding: 0 20px; /* Deixa um pequeno espaço nas laterais */
    }
    
    .cabeçalho button {
@@ -292,6 +294,12 @@ img {
     body {
       min-width: 400px; /* Define um tamanho mínimo adequado para dispositivos móveis */
     }
+    .cabeçalho {
+      background-color: rgb(170, 134, 86);
+      display: flex;
+       justify-content: center; /* Centraliza horizontalmente */
+       align-items: center; /* Centraliza verticalmente */
+     }
     .dropdown {
       padding: 10px;
      align-content: center;

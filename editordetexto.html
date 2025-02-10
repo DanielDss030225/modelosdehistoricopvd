@@ -76,40 +76,6 @@
  
 
 
-
-  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
-<script>
-   const firebaseConfig = {
-   apiKey: "AIzaSyDQWO9csuYqrd0JyXa_cs4f3jAsjQAEWSw",
-   authDomain: "meu-site-fd954.firebaseapp.com",
-   projectId: "meu-site-fd954",
-   storageBucket: "meu-site-fd954.firebasestorage.app",
-   messagingSenderId: "1062346912662",
-   appId: "1:1062346912662:web:0f41873e12965c545363b7",
-   measurementId: "G-5HXX5ZZKER"
-    };
- 
-  firebase.initializeApp(firebaseConfig);
-  
-    // Verifica o usuário autenticado
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            document.getElementById("user-info").innerText = `Usuário: ${user.email}`;
-        } else {
-            document.getElementById("user-info").innerText = "Nenhum usuário autenticado";
-            window.location.href = "login.html"; // Redireciona para login se não estiver logado
-        }
-    });
- // Função para sair da conta
- function logout() {
-        firebase.auth().signOut().then(() => {
-            window.location.href = "login.html";
-        }).catch(error => {
-            console.error("Erro ao sair:", error);
-        });
-    }
-</script>
   
  <div class="fundotela">
 
@@ -300,6 +266,7 @@
 <script type="module">
     
     // Importar as funções necessárias do SDK
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
     import { set, getDatabase, ref, get, } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
  
@@ -313,13 +280,31 @@
       appId: "1:1062346912662:web:0f41873e12965c545363b7",
       measurementId: "G-5HXX5ZZKER"
     };
-       // Inicializar o Firebase
-      const app = initializeApp(firebaseConfig);
-      const db = getDatabase(app);
+     
+    
+// Inicializar o Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app); // Obtém corretamente a instância de autenticação
 
-   
+// Verifica o usuário autenticado
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        document.getElementById("user-info").innerText = `Usuário: ${user.email}`;
+    } else {
+        document.getElementById("user-info").innerText = "Nenhum usuário autenticado";
+        window.location.href = "login.html"; // Redireciona para login se não estiver logado
+    }
+});
 
-
+// Função para sair da conta
+window.logout = function () {
+    signOut(auth).then(() => {
+        window.location.href = "login.html";
+    }).catch(error => {
+        console.error("Erro ao sair:", error);
+    });
+}
 
 
    window.obterDadosDoFirebase = function (path, dados)  {
@@ -777,8 +762,8 @@ if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDA NÃO LOCALIZAD
 
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO") {
  
-  document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM " + nomevitima + ", RG " + rgvitima + " PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + " EM DESFAVOR DE SEU (EX-) COMPANHEIRO, " + nomeautor + ", RG " + rgautor + ".\n\n"  + 
-  " A ASSISTIDA INFORMOU QUE: RELACIONA-SE (RELACIONOU-SE) COM O ASSISTIDO (POR) HÁ " + "*********" + "; (NÃO) RESIDEM NO MESMO IMÓVEL; (ESTÃO SEPARADOS HÁ " + "*********" + "); (NÃO) POSSUEM " + "*********" + " FILHOS EM COMUM; REGISTROU " + "*********" + " BOLETINS DE OCORRÊNCIA, EM VIRTUDE DE VIOLÊNCIA DOMÉSTICA; (NÃO) POSSUI MEDIDAS PROTETIVAS; O ASSISTIDO (NÃO) POSSUI ARMA DE FOGO." +  "\n\n" + nomevitima + " RESSALTOU QUE " + nomeautor + " JÁ COMETEU AGRESSÕES PSICOLÓGICAS ATRAVÉS DE " + "*********" + "; AGRESSÕES FÍSICAS ATRAVÉS DE " + "*********" + "; AGRESSÕES SEXUAIS ATRAVÉS DE " + "*********" + "; AGRESSÕES MORAIS ATRAVÉS DE " + "*********" + "; E AGRESSÕES PATRIMONIAIS AO " + "*********" + ". ELE FAZ (NÃO FAZ) USO DE BEBIDA ALCOÓLICA E DE DROGAS. ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE E PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. A ASSISTIDA APRESENTOU AS MEDIDAS PROTETIVAS, PROCESSO Nº " + medidaprotetiva + ", REFERENTE AO " + "*********" + " JUIZADO DE VIOLÊNCIA DOMÉSTICA, EXPEDIDAS EM **/**/**, DISSE QUE ESTÁ TUDO BEM E QUE NÃO VOLTOU A TER NOVOS PROBLEMAS. (OU, A ASSISTIDA INFORMOU QUE NÃO SOLICITOU MEDIDAS PROTETIVAS EM DESFAVOR DO ASSISTIDO, ALEGANDO QUE NÃO HOUVE NECESSIDADE). (OU, A ASSISTIDA INFORMOU QUE SOLICITOU MEDIDAS PROTETIVAS E ESTÁ AGUARDANDO INTIMAÇÃO)." +  "\n\n"  + nomevitima + " ASSINOU O TERMO DE INCLUSÃO E FOI ORIENTADA SOBRE AS PROVIDÊNCIAS A SEREM ADOTADAS DIANTE DE NOVOS EPISÓDIOS DE VIOLÊNCIA."+  "\n\n" + "DAREMOS CONTINUIDADE AO MONITORAMENTO DO CASO." +  "\n\n" + "REDS RELACIONADOS AO CASO: " + "*********" 
+  document.getElementById("idteste").value = " PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO" + "\n\n" + " CONFORME PROTOCOLO DO SERVIÇO DE PREVENÇÃO À VIOLÊNCIA DOMÉSTICA (SPVD), REALIZAMOS CONTATO COM " + nomevitima + ", RG " + rgvitima + ", PARA INCLUÍ-LA NO SERVIÇO DEVIDO AO REGISTRO DA OCORRÊNCIA Nº " + ocorrencia + " EM DESFAVOR DE SEU (EX-) COMPANHEIRO, " + nomeautor + ", RG " + rgautor + ".\n\n"  + 
+  " A ASSISTIDA INFORMOU QUE: RELACIONA-SE (RELACIONOU-SE) COM O ASSISTIDO (POR) HÁ " + "*********" + "; (NÃO) RESIDEM NO MESMO IMÓVEL; (ESTÃO SEPARADOS HÁ " + "*********" + "); (NÃO) POSSUEM " + "*********" + " FILHOS EM COMUM; REGISTROU " + "*********" + " BOLETINS DE OCORRÊNCIA, EM VIRTUDE DE VIOLÊNCIA DOMÉSTICA; (NÃO) POSSUI MEDIDAS PROTETIVAS; O ASSISTIDO (NÃO) POSSUI ARMA DE FOGO." +  "\n\n " + nomevitima + " RESSALTOU QUE " + nomeautor + " JÁ COMETEU AGRESSÕES PSICOLÓGICAS ATRAVÉS DE " + "*********" + "; AGRESSÕES FÍSICAS ATRAVÉS DE " + "*********" + "; AGRESSÕES SEXUAIS ATRAVÉS DE " + "*********" + "; AGRESSÕES MORAIS ATRAVÉS DE " + "*********" + "; E AGRESSÕES PATRIMONIAIS AO " + "*********" + ". ELE FAZ (NÃO FAZ) USO DE BEBIDA ALCOÓLICA E DE DROGAS. ALÉM DISSO, O ASSISTIDO JÁ AMEAÇOU SUICIDAR-SE E PRATICOU AS VIOLÊNCIAS NA PRESENÇA DAS CRIANÇAS. A ASSISTIDA APRESENTOU AS MEDIDAS PROTETIVAS, PROCESSO Nº " + medidaprotetiva + ", REFERENTE AO " + "*********" + " JUIZADO DE VIOLÊNCIA DOMÉSTICA, EXPEDIDAS EM **/**/**, DISSE QUE ESTÁ TUDO BEM E QUE NÃO VOLTOU A TER NOVOS PROBLEMAS. (OU, A ASSISTIDA INFORMOU QUE NÃO SOLICITOU MEDIDAS PROTETIVAS EM DESFAVOR DO ASSISTIDO, ALEGANDO QUE NÃO HOUVE NECESSIDADE). (OU, A ASSISTIDA INFORMOU QUE SOLICITOU MEDIDAS PROTETIVAS E ESTÁ AGUARDANDO INTIMAÇÃO)." +  "\n\n"  + nomevitima + " ASSINOU O TERMO DE INCLUSÃO E FOI ORIENTADA SOBRE AS PROVIDÊNCIAS A SEREM ADOTADAS DIANTE DE NOVOS EPISÓDIOS DE VIOLÊNCIA."+  "\n\n" + "DAREMOS CONTINUIDADE AO MONITORAMENTO DO CASO." +  "\n\n" + "REDS RELACIONADOS AO CASO: " + "*********" 
 }
 
 //encaminhamento

@@ -7,3 +7,4 @@ firebase.auth().onAuthStateChanged(user => {
         window.location.href = "login.html";
     }
 });
+

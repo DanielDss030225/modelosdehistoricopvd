@@ -201,11 +201,14 @@ h2 {
 }
 
 .cabeçalho {
- background-color: rgb(170, 134, 86);
- display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-}
+  background-color: rgb(170, 134, 86);
+
+  display: flex;
+  justify-content: flex-end; /* Alinha os itens ao lado direito */
+  align-items: center; /* Alinha os itens verticalmente */
+  padding: 0 20px; /* Deixa um pequeno espaço nas laterais */
+ }
+
 
 .cabeçalho button {
 width: 100px;
@@ -237,6 +240,12 @@ margin-left: 20px;
     place-items: center; /* Centraliza tanto horizontalmente quanto verticalmente */
 
   }
+  .cabeçalho {
+    background-color: rgb(170, 134, 86);
+    display: flex;
+     justify-content: center; /* Centraliza horizontalmente */
+     align-items: center; /* Centraliza verticalmente */
+   }
   body {
     display: block;
     align-items: center;
