@@ -93,7 +93,9 @@ const firebaseConfig = {
           <a id = "MDA" href="editordetexto.html">Monitoramento do autor</a>
           <a id = "CCT" href="editordetexto.html">Contato com testemunha</a>
           <a id = "ECAV" href="editordetexto.html">Encerramento com a vítima</a>
-                    
+          <a id = "VPA" href="editordetexto.html">Visita para autor</a>
+          <a id = "VTAV" href="editordetexto.html">Visita tranquilizadora à vítima</a>
+                      
         </div>
       
   
@@ -228,12 +230,23 @@ const firebaseConfig = {
 
                     <li>  
                       <p>Encerramento com a vítima              
-                      </p>
-               
-
+                      </p>             
                 </li>
               </a>
+              <a id = "VPAS" href="editordetexto.html">
 
+                <li>  
+                  <p>Visita para autor              
+                  </p>             
+            </li>
+          </a>
+          <a id = "VTAVS" href="editordetexto.html">
+
+            <li>  
+            <p>Visita tranquilizadora à vítima             
+              </p>             
+        </li>
+      </a>
                 </ul>
              
                  </nav>
@@ -354,6 +367,18 @@ const firebaseConfig = {
   });
   document.getElementById("CCTS").addEventListener("click", function(event) {
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: CONTATO COM TESTEMUNHA");
+  });
+  document.getElementById("VPAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA PARA AUTOR DE VIOLÊNCIA DOMÉSTICA");
+  });
+  document.getElementById("VTAVS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (AUTOR PRESO)");
+  });
+  document.getElementById("VPA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA PARA AUTOR DE VIOLÊNCIA DOMÉSTICA");
+  });
+  document.getElementById("VTAV").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (AUTOR PRESO)");
   });
 </script>
 
