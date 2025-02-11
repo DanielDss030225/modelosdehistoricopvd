@@ -94,12 +94,19 @@ const firebaseConfig = {
           <a id = "CCT" href="editordetexto.html">Contato com testemunha</a>
           <a id = "ECAV" href="editordetexto.html">Encerramento com a vítima</a>
           <a id = "VPA" href="editordetexto.html">Visita para autor</a>
-          <a id = "VTAV" href="editordetexto.html">Visita tranquilizadora à vítima (AUTOR PRESO)</a>
-          <a id = "VTAVNC" href="editordetexto.html">Visita tranquilizadora à vítima (NÃO CÔNJUGE)</a>
-                      
+          <a id = "VTAV" href="editordetexto.html">Visita tranquilizadora à vítima (Autor preso)</a>
+          <a id = "VTAVNC" href="editordetexto.html">Visita tranquilizadora à vítima (Não cônjuge)</a>
+          <a id = "IDVEA" href="editordetexto.html">Inclusão da vítima (Envolvendo Autoridades)</a>
+          <a id = "NDAEA" href="editordetexto.html">Notificação do autor (Envolvendo Autoridades)</a>
+          <a id = "RDVEA" href="editordetexto.html">Recusa da vítima (Envolvendo autoridades)</a>
+          <a id = "ADLPAVEA" href="editordetexto.html">Apresentação da lei para a vítima (Envolvendo autoridades) 
+          </a>
+          <a id = "ANL" href="editordetexto.html">Autor não localizado
+          </a>
+          <a id = "VNL" href="editordetexto.html">Vítima não localizada
+          </a>
         </div>
       
-  
 
         
       </div></li>
@@ -244,29 +251,78 @@ const firebaseConfig = {
           <a id = "VTAVS" href="editordetexto.html">
 
             <li>  
-            <p>Visita tranquilizadora à vítima (AUTOR PRESO)             
+            <p>Visita tranquilizadora à vítima (Autor preso)             
               </p>             
         </li>
       </a>
                 </ul>
              
                  </nav>
+
                  <nav> 
                   <ul> 
-                    <a id = "VTAVNCS" href="editordetexto.html">
-  
-                      <li>  
-                        <p>Visita tranquilizadora à vítima (NÃO CÔNJUGE)            
-                        </p>             
+                  <a id = "RDVEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Recusa da vítima (Envolvendo autoridades)            
+                  </p>             
                   </li>
-                </a>
-            
-                  </ul>
-               
-                   </nav>
-                 <div>&nbsp </div>
-                
-                </div>
+                  </a>
+                              
+                  </ul>               
+                  </nav>
+
+
+
+                 <nav> 
+                  <ul> 
+                  <a id = "VTAVNCS" href="editordetexto.html">
+                  <li>  
+                  <p>Visita tranquilizadora à vítima (Não cônjuge)            
+                  </p>             
+                  </li>
+                  </a>
+                  <a id = "IDVEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Inclusão da vítima (Envolvendo Autoridades)            
+                  </p>             
+                  </li>
+                  </a>
+                  <a id = "NDAEAS" href="editordetexto.html">
+                  <li>  
+                  <p>Notificação do autor (Envolvendo Autoridades)           
+                  </p>             
+                  </li>
+                  </a>                
+                  </ul>               
+                  </nav>
+
+                  <nav> 
+                    <ul> 
+                    <a id = "VNLS" href="editordetexto.html">
+                    <li>  
+                    <p>Vítima não localizada           
+                    </p>             
+                    </li>
+                    </a>
+                    <a id = "ANLS" href="editordetexto.html">
+                    <li>  
+                    <p>Autor não localizado            
+                    </p>             
+                    </li>
+                    </a>
+                    <a id = "ADLPAVEAS" href="editordetexto.html">
+                    <li>  
+                    <p>Apresentação da lei para a vítima (Envolvendo autoridades)          
+                    </p>             
+                    </li>
+                    </a>                
+                    </ul>               
+                    </nav>
+  
+
+
+                  <div>&nbsp </div>               
+                 </div>
         
                
 
@@ -400,7 +456,42 @@ const firebaseConfig = {
   document.getElementById("VTAVNC").addEventListener("click", function(event) {
       localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VISITA TRANQUILIZADORA À VÍTIMA DE VIOLÊNCIA DOMÉSTICA (CASO DE NÃO-CONJUGALIDADE)");
   });
-  
+  document.getElementById("IDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("IDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: INCLUSÃO DA VÍTIMA E AVALIAÇÃO DE RISCO (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("NDAEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("NDAEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: NOTIFICAÇÃO DO AUTOR (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("RDVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("VNLS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VÍTIMA NÃO LOCALIZADA");
+  });
+  document.getElementById("VNL").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: VÍTIMA NÃO LOCALIZADA");
+  });
+  document.getElementById("ANL").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: AUTOR NÃO LOCALIZADO");
+  });
+  document.getElementById("ANLS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: AUTOR NÃO LOCALIZADO");
+  });
+  document.getElementById("ADLPAVEAS").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
+  document.getElementById("ADLPAVEA").addEventListener("click", function(event) {
+      localStorage.setItem("nome", "PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: APRESENTAÇÃO DA LEI PARA A VÍTIMA (ENVOLVENDO AUTORIDADES)");
+  });
 </script>
 
 <footer>
