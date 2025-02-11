@@ -60,7 +60,10 @@ if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA") {
   document.getElementById("idteste").value = " DIGITE O TEXTO AQUI"
 }
-
+if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)") {
+  document.getElementById("idteste").value = " NUMERO 01" + "\n\n" + " NUMERO 02" + "\n\n" + " NUMERO 03. " + "\n\n" + " NUMERO 04. " + "\n\n" + " NUMERO 05. " + "\n\n" + " NUMERO 06. " + "\n\n" + " NUMERO 07. "
+}
+S
 let nomeautor 
 let rgautor 
 let ocorrencia  
