@@ -60,10 +60,19 @@ if (nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA") {
   document.getElementById("idteste").value = " DIGITE O TEXTO AQUI"
 }
+
+
+
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DA VÍTIMA (ENVOLVENDO AUTORIDADES)") {
   document.getElementById("idteste").value = " NUMERO 01" + "\n\n" + " NUMERO 02" + "\n\n" + " NUMERO 03. " + "\n\n" + " NUMERO 04. " + "\n\n" + " NUMERO 05. " + "\n\n" + " NUMERO 06. " + "\n\n" + " NUMERO 07. "
 }
+
+
+
 S
+
+
+
 let nomeautor 
 let rgautor 
 let ocorrencia  
@@ -72,3 +81,27 @@ let rgvitima
 let telefoneautor
 let telefonevitima
 let medidaprotetiva 
+
+
+<nav> 
+<ul> 
+<a id = "VTAVNCS" href="editordetexto.html">
+<li>  
+<p>Visita tranquilizadora à vítima (Não cônjuge)            
+</p>             
+</li>
+</a>
+<a id = "IDVEAS" href="editordetexto.html">
+<li>  
+<p>Inclusão da vítima (Envolvendo Autoridades)            
+</p>             
+</li>
+</a>
+<a id = "NDAEAS" href="editordetexto.html">
+<li>  
+<p>Notificação do autor (Envolvendo Autoridades)           
+</p>             
+</li>
+</a>                
+</ul>               
+</nav>
