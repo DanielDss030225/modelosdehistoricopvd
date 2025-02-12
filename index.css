@@ -14,7 +14,6 @@ body {
 .dropdown {
    
     text-align: center;
-
     width: 100%;
 
   }
@@ -24,6 +23,8 @@ body {
     display: none;
     position: absolute;
     width: 98%;
+    max-height: 90vh; /* Evita que ultrapasse a tela */
+    overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
     background-color:  rgb(170, 134, 86);
     font-size: 18px;
   }
@@ -40,6 +41,8 @@ body {
     width: 100%;
 
   }
+  
+
   
   .dropdown:hover .dropdown-content {
     display: block;
