@@ -6,10 +6,14 @@ function login() {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(response => {
+            ocultarCarregamento()
             window.location.href = "index.html";
-        })
-        .catch(error => {
+        })  
+        .catch(error => {      
+       
+            ocultarCarregamento()
+            trocarTexto()
             console.log('Erro:', error.message);
-            alert("Atenção! Credenciais incorretas.");
         });
+
 }
