@@ -71,7 +71,29 @@
 <body class="container">
 
 
-  
+  <div id="loading-screen" style="
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 9999;">
+    Carregando...
+</div>
+<script>
+  function mostrarCarregamento() {
+    document.getElementById("loading-screen").style.display = "flex";
+}
+
+function ocultarCarregamento() {
+    document.getElementById("loading-screen").style.display = "none";
+}
+
+</script>
 
 
 
@@ -137,7 +159,7 @@
    <li>
   
         
-             <input onblur="this.value = this.value.trim(), obterDadosDoFirebase();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
+             <input onblur="this.value = this.value.trim(), obterDadosDoFirebase(), mostrarCarregamento();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" autofocus >                           
             
      
    
@@ -319,18 +341,14 @@ window.logout = function () {
    window.obterDadosDoFirebase = function (path, dados)  {
 
 
+
   const rgvitimavalor = document.getElementById("rgvitima").value  
+  
   console.log(rgvitimavalor);   
 
-   
-  if (!rgvitimavalor) {
-    
-    console.error("O banco de dados tentou obter os valores, mas nenhum dado foi encontrato!");
-    return;
-  }
- 
+   //// A FUÇÃO ESTAVA AQUI
   
-   
+
   const valorDoInput = "DADOS/" + rgvitimavalor;
   // Referência para o nó específico no Firebase
 
@@ -338,18 +356,32 @@ window.logout = function () {
 
 get(dbRef)
     .then((snapshot) => {
-      const lista = snapshot.val();
+
+      
+    
+      ocultarCarregamento() 
+      
+if (!rgvitimavalor) {
+  console.error("É necessário digitar o RG da vítima!"  );
+ 
+  return;
+}
+const lista = snapshot.val();
       console.log(lista);// Exibe a lista completa no console
-  
         //AJUSTA VALOR PARA O VALOR DO SNAPSHOT
           const valor = snapshot.val();
           
-  //FUNÇÃO QUE CONVERTE UMA LISTA JSON PARA ARRAY
-  function converterParaArray(valor) {
-    // Mapeia a lista, substituindo valores nulos por "NULL" e garantindo que todos sejam strings
-    return valor.map(item => item === null ? "NULL" : String(item));
-  
+    //FUNÇÃO QUE CONVERTE UMA LISTA JSON PARA ARRAY
+    function converterParaArray(valor) {
+      if (!Array.isArray(valor)) {
+          console.error("ERRO: RG Não cadastrado no sistema!", valor);
+          return ['', '', '', '', '', '', '']; // Retorna um array vazio para evitar erro
+      }
+
+      return valor.map(item => item === null ? "NULL" : String(item));
   }
+
+  
   // Exemplo de uso
   const valorTeste = valor; // Obtém a lista do Firebase     
   const valorLista = valorTeste;
@@ -358,6 +390,10 @@ get(dbRef)
   
   console.log(resultado);
    
+
+
+  
+ 
   //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 0
   function indice0(resultado, indice00) {
     // Verifica se o índice está dentro do intervalo válido
@@ -525,7 +561,7 @@ get(dbRef)
     }
 
 
-
+    ocultarCarregamento()
     
   
   })
@@ -882,7 +918,7 @@ if ( nome=="ASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: RECUSA DE ENCAMINHAMENTO 
 if ( nome=="CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO") {
   document.getElementById("idteste").value = " CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO" + "\n\n" + " DURANTE O ACOMPANHAMENTO DO CASO DE VIOLÊNCIA DOMÉSTICA REFERENTE A ********* E *********, RG *********, CONVIDAMOS O ASSISTIDO PARA COMPARECIMENTO NÃO OBRIGATÓRIO AO GRUPO REFLEXIVO SOBRE GÊNERO PROMOVIDO PELO INSTITUTO CASA DA PALAVRA EM CONJUNTO COM A 1ª CIA PM IND PVD. O ENVOLVIDO FOI INFORMADO ACERCA DO PRÓXIMO ENCONTRO QUE OCORRERÁ NO DIA **/**/**** E QUE OS ENCONTROS OCORREM DE FORMA QUINZENAL. "
 }
-
+ocultarCarregamento()
 
 
 //
