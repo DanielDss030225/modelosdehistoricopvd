@@ -85,6 +85,19 @@
     Carregando...
 </div>
 <script>
+function copiarTexto() {
+    const input = document.getElementById("idteste");
+
+    // Seleciona o texto dentro do input
+    input.select();
+    input.setSelectionRange(0, 99999); // Para compatibilidade com dispositivos móveis
+
+    // Copia o texto para a área de transferência
+    navigator.clipboard.writeText(input.value)
+        .then(() => alert("Texto copiado com sucesso!"))
+        .catch(err => console.error("Erro ao copiar texto:", err));
+}
+
   function mostrarCarregamento() {
     document.getElementById("loading-screen").style.display = "flex";
 }
@@ -273,8 +286,13 @@ function ocultarCarregamento() {
 
 
 </fieldset>
+
 </div>
 </ul>
+<div class="center">
+  <button onclick="copiarTexto()">Copiar texto</button>
+
+</div>
 
   
 </div>
