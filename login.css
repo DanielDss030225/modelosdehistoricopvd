@@ -1,273 +1,133 @@
-
-body {
-
-  background-color: rgb(238, 224, 147);
-  font-family: Arial, Helvetica, sans-serif;
-
- 
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Plano de fundo geral */
+body {
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Container principal */
+.container {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
 
-  input {
-    border-radius: 20px; /* Bordas arredondadas */
-    border: 1px solid #ccc;
-    height: 19px;
+/* Logo */
+.container img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
 
-    padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
-    text-decoration: none;
-    display: flex;
-    width: auto; /* Faz o input ocupar toda a largura do li */
-    font-size: 1rem; /* Tamanho da fonte */
-    outline: none; /* Remove o contorno (borda de foco) */
-     margin-left: 10px;
-     margin-top: 20px;
-     margin-right: 10px;
-     margin-bottom: 10px;
-     justify-content: center;
-     align-items: center;
-    
+/* Título */
+.logintitle {
+  font-size: 24px;
+  color: #3a3a3a;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Campos de entrada */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 2px solid #dce6f9;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f9fbff;
+  transition: 0.3s;
 }
 
 input:focus {
-    border-color: #007BFF; /* Adiciona uma cor de borda personalizada no foco */
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Efeito de foco */
-  }
-  
-  input::placeholder {
-    color: #c5c3c3; /* Cor do texto do placeholder */
-    font-style: italic; /* Estilo opcional para o texto */
-  
-  }
-
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-
- 
- ul li {
-
+  border-color: #7da0fa;
+  outline: none;
   background-color: #ffffff;
-  border: 1px solid #ddd;
-  margin: 20px 20px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  transition: transform 0.0s ease;
-  height: 100%;
-
-
+  box-shadow: 0 0 6px rgba(125, 160, 250, 0.4);
 }
 
-  
-  
-  
-  ul li:hover {
-    transform: translateY(-0px); /* Pequeno efeito de hover */
-  }
-  
-    
- /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
- ul {
-  display: flex;  /* Exibe os itens da lista em linha */
-  list-style-type: none; /* Remove os marcadores padrão */
+input::placeholder {
+  color: #a0a7c0;
+}
+
+/* Mensagem de erro */
+#meuTexto {
+  color: #ff4d4f;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+/* Botão de login */
+.buttonLogin {
+  background-color: #5a85f5;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttonLogin:hover {
+  background-color: #3d6ee3;
+}
+
+/* Lista e item único */
+ul {
+  list-style-type: none;
   padding: 0;
-  margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  
+  margin: 0;
 }
 
+ul li {
+  width: 100%;
+}
 
-
-.elementoP p {
+/* Tela de carregamento */
+#loading-screen {
+  position: fixed;
   width: 100%;
   height: 100%;
-}
-img {
-    height: 60px;
-    width:70px;
-  
-}
-  
-.cardGerar {
-    background-color: rgb(170, 134, 86);
-    border: 1px solid rgb(170, 134, 86);
-    margin: 8px 10px;
-    
-    padding: 5px 5px;
-    border-radius: 8px;
-    font-size: 18px; /* Tamanho da fonte responsivo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    height: 50px;
-    width: 400px;
-    align-items: center;
-    cursor: pointer;
-
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 9999;
 }
 
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+  }
 
   .logintitle {
-    color:black;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-  }
-  
-  div {
-    text-align: center;
-
-    
-  }
-  
-
-  .container {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Garante que o contêiner ocupe toda a altura da tela */
+    font-size: 20px;
   }
 
-
-  button {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 50%;
-    height: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    background-color: #007BFF;
-    border-color: #007BFF;
-    border-radius: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  input,
+  .buttonLogin {
+    font-size: 15px;
   }
-
-  P {
-    color: red;
-    font-size: 10px;
-  }
-/* Estilo para dispositivos móveis (telas menores que 768px) */
-@media (max-width: 768px) {
-    ul {
-      display: block; /* Exibe os itens da lista verticalmente */
-      padding: 0;      /* Remove o padding do ul */
-      margin: 0;       /* Remove a margem do ul */
-    }
-    body {
-      min-width: 400px; /* Define um tamanho mínimo adequado para dispositivos móveis */
-    }
-    .dropdown {
-      padding: 10px;
-     align-content: center;
-      text-align: center;
-  align-items: center;
-  
-    }
-
-
-    ul li {
-
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      margin: 20px 20px;
-      padding: 10px;
-      border-radius: 8px;
-      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-      transition: transform 0.0s ease;
-      height: 100%;
-    
-    
-    }
-    
-      
-      
-      
-      ul li:hover {
-        transform: translateY(-0px); /* Pequeno efeito de hover */
-      }
-      
-        
-     /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
-     ul {
-      display: flex;  /* Exibe os itens da lista em linha */
-      list-style-type: none; /* Remove os marcadores padrão */
-      padding: 0;
-      margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
-      width: 50%;
-      justify-content: center;
-      align-items: center;
-      
-    }
-    
-    
- 
-      
-
-    .logotipo {
-
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        margin: 8px 10px;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 1rem; /* Tamanho da fonte responsivo */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease;
-        height: 110px;
-        width: 110px;
-        align-items: center;
-    }
-    img {
-        height: 80px;
-        width:80px;
-    }
-
-    .cardGerar {
-        background-color: rgb(170, 134, 86);
-        border: 1px solid rgb(170, 134, 86);
-        margin: 8px 10px;
-        
-        padding: 5px 5px;
-        border-radius: 8px;
-        font-size: 18px; /* Tamanho da fonte responsivo */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease;
-        height: 60px;
-        width: 96%;
-        align-items: center;
-        cursor: pointer;
-    
-    }
-    
-    .descricao {
-      outline: none;
-      font-family: Arial;
-  
-       width: 90%;
-      height: 600px;
-  
-      border-radius: 20px; /* Bordas arredondadas */
-      border: 1px solid #ccc;
-  
-      padding: 20px 20px; /* Adiciona um pouco de espaçamento interno */
-      text-decoration: none;
-      display: flex;
-      font-size: 18px;
-      outline: none; /* Remove o contorno (borda de foco) */
-  
-    
-  }
-      
-  }
+}

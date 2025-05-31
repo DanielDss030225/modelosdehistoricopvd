@@ -1,144 +1,164 @@
-
 body {
-
-  background-color: rgb(170, 134, 86);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f9fc; /* mesmo fundo claro do primeiro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px; 
   padding: 0px;
   width: 100%;
   height: 100%;  
-  
- 
+}
+
+/* Cabeçalho */
+.cabeçalho {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #4158d0;
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+  color: white;
+}
+
+.cabeçalho p#user-info {
+  font-weight: 600;
+  font-size: 0.9rem; /* Ajustado */
+}
+
+.cabeçalho button {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.9rem; /* Ajustado */
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+}
+
+.cabeçalho button:hover {
+  background-color: #e04343;
 }
 
 .dropdown {
-   
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
+}
 
-  }
-  
-  .dropdown-content {
-    
-    display: none;
-    position: absolute;
-    width: 98%;
-    max-height: 90vh; /* Evita que ultrapasse a tela */
-    overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
-    background-color:  rgb(170, 134, 86);
-    font-size: 18px;
-  }
-  
-  
-  .dropdown-content a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: black;
-    height: 20%;
-    margin: 0px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 98%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #f0f4ff; /* tom claro azul do fieldset */
+  font-size: 18px;
+  border: 1px solid #4158d0; /* borda azul */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(65, 88, 208, 0.3);
+}
 
-  }
+.dropdown-content a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #4158d0; /* azul escuro */
+  height: 20%;
+  margin: 0px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
 
-  .dropdown-content a p {
-   
-    color: black;
-    margin-left: 50px;
-    margin-right: 50px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+.dropdown-content a p {
+  color: #4158d0;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
 
-  }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-    
-   
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #c1c9ff; /* azul claro hover */
+}
 
 input {
-  width: 94%; /* Faz o input ocupar toda a largura do li */
-  padding: 8px 12px; /* Adiciona um pouco de espaçamento interno */
-  border-radius: 20px; /* Bordas arredondadas */
-  font-size: 1rem; /* Tamanho da fonte */
-    text-decoration: none;
-    display: flex;
-    height: 25px;
-   border: 1px solid #ccc;
-
-    outline: none; /* Remove o contorno (borda de foco) */
-
+  width: 94%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  display: flex;
+  height: 25px;
+  border: 2px solid #a3b1ff; /* borda azul suave */
+  outline-offset: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus {
-  border-color: #007BFF; /* Adiciona uma cor de borda personalizada no foco */
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Efeito de foco */
-
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: #3a7bd5; /* azul mais vibrante */
+  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  outline: none; /* remove a outline padrão do navegador */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input::placeholder {
-  color: #c5c3c3; /* Cor do texto do placeholder */
-  font-style: italic; /* Estilo opcional para o texto */
 
-}
 
 
 p {
-  font-size: 1rem; /* Tamanho da fonte responsivo */
+  font-size: 1rem;
+  color: #333; /* texto escuro */
 }
 
- img {
+img {
   height: 50px;
-    width: 50px;
-  }
+  width: 50px;
+}
 
-  .logo {
-    justify-content: space-between;
-    list-style-type: none;
-    align-items: center;
-    display: flex;
-padding-bottom: 10px;
-padding-top: 10px;    
-  }
+.logo {
+  justify-content: space-between;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
-  footer {
-  
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(170, 134, 86);
-    padding: 0;
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4158d0; /* azul escuro */
+  padding: 0;
+}
 
- }
+.footerp {
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
- .footerp {
-   font-size: 20px;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  color: rgb(0, 0, 0);
- }
-
- .footerdiv {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-
-
-
+.footerdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 ul li {
   background-color: #ffffff;
@@ -146,53 +166,37 @@ ul li {
   margin: 20px 20px;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 5px rgba(65, 88, 208, 0.15); /* sombra azulada leve */
   transition: transform 0.2s ease;
   height: 50px;
   width: 80%;
   align-items: center;
-
 }
-
-
-
-
 
 ul li:hover {
-  transform: translateY(-2px); /* Pequeno efeito de hover */
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 12px rgba(65, 88, 208, 0.3);
 }
 
-  
- /* Estilo para dispositivos grandes (desktop, tablet em paisagem) */
- ul {
-  display: flex;  /* Exibe os itens da lista em linha */
-  list-style-type: none; /* Remove os marcadores padrão */
+ul {
+  display: flex;
+  list-style-type: none;
   padding: 0;
   justify-content: space-between;
-  width: 100%;      /* Define a largura do conteúdo (80% da página) */
-  max-width: 1200px; /* Limita a largura máxima */
-  margin: 0 auto;  /* Centraliza o conteúdo horizontalmente */
-  
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a {
   text-align: center;
   align-items: center;
- color:rgb(0, 0, 0);
- text-decoration: none;
- width: 100%;
- align-items: center;
- text-align: center;
- align-self: center;
- align-content: center;
-
+  color: #4158d0;
+  text-decoration: none;
+  width: 100%;
 }
 
 footer p {
-  color: white;
-}
-
-.footerp {
   color: white;
 }
 
@@ -205,114 +209,122 @@ nav {
 }
 
 .fundotela {
-background-color: rgb(238, 224, 147);
-
-
-
+  background-color: #f0f4ff; /* fundo azul claro */
 }
 
 h2 {
   text-align: center;
-
+  color: #4158d0;
 }
+
 
 .cabeçalho {
-  background-color: rgb(170, 134, 86);
-
+  background-color: #4158d0; /* azul escuro */
   display: flex;
-  justify-content: flex-end; /* Alinha os itens ao lado direito */
-  align-items: center; /* Alinha os itens verticalmente */
-  padding: 0 20px; /* Deixa um pequeno espaço nas laterais */
- }
-
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+}
 
 .cabeçalho button {
-width: 100px;
-height: 30px;
-font-size: 14px;
-cursor: pointer;
-color: rgb(255, 255, 255);
-background-color: #007BFF;
-border-color: #007BFF;
-border-radius: 10px;
-margin-right: 20px;
-align-items: center;
-margin-left: 20px;
-}
-.cabeçalho p {
-  color:white;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  background-color: #6a6aff; /* azul médio */
+  border-color: #6a6aff;
+  border-radius: 10px;
+  margin-right: 60px;
+  align-items: center;
+  margin-left: 20px;
+  transition: background-color 0.3s ease;
 }
 
-/* Estilo para dispositivos móveis (telas menores que 768px) */
+.cabeçalho button:hover {
+  background-color: #4e4eff; /* azul hover */
+}
+
+.cabeçalho p {
+  color: white;
+}
+
+
+
+/* Responsividade */
+
 @media (max-width: 768px) {
   ul {
-    display: block; /* Exibe os itens da lista verticalmente */
-    padding: 0;      /* Remove o padding do ul */
-    margin: 0;       /* Remove a margem do ul */
+    display: block;
+    padding: 0;
+    margin: 0;
     align-items: center;
     align-self: center;
     align-content: center;
     text-align: center;
-    place-items: center; /* Centraliza tanto horizontalmente quanto verticalmente */
-
+    place-items: center;
   }
   .cabeçalho {
-    background-color: rgb(170, 134, 86);
+    background-color: #4158d0;
     display: flex;
-     justify-content: center; /* Centraliza horizontalmente */
-     align-items: center; /* Centraliza verticalmente */
-   }
+    justify-content: center;
+    align-items: center;
+  }
   body {
     display: block;
     align-items: center;
     align-self: center;
     align-content: center;
     text-align: center;
-    place-items: center; /* Centraliza tanto horizontalmente quanto verticalmente */
-
-    min-width: 400px; /* Define um tamanho mínimo adequado para dispositivos móveis */
+    place-items: center;
+    min-width: 400px;
   }
   ul li {
     background-color: #ffffff;
     border: 1px solid #ddd;
-    margin: clamp(10px, 7%, 50px); /* Mínimo 10px, ideal 5% da tela, máximo 50px */
-padding-top: 8px;    
-padding-bottom: 8px;
-padding-left: 0px;
-padding-right: 0px;
-border-radius: 8px;
-padding-inline: 4px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    margin: clamp(10px, 7%, 50px);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 8px;
+    padding-inline: 4px;
+    box-shadow: 2px 2px 5px rgba(65, 88, 208, 0.15);
     transition: transform 0.2s ease;
     width: 85%;
     align-items: center;
     align-self: center;
     align-content: center;
     text-align: center;
-    place-items: center; /* Centraliza tanto horizontalmente quanto verticalmente */
-
-    
+    place-items: center;
   }
 
   input {
-padding-inline: 20px;
-
-
-    border-radius: 20px; /* Bordas arredondadas */
-    font-size: 1rem; /* Tamanho da fonte */
-      text-decoration: none;
-      height: 20px;
-      font-size: 18px;
-     border: 1px solid #ccc;
-  
-      outline: none; /* Remove o contorno (borda de foco) */
-      display: flex;
-      flex-grow: 1;
-      width: 100%;
-      min-width: 60%;
-      max-width: 88%;
-      
+    padding-inline: 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    height: 20px;
+    font-size: 18px;
+    border: 2px solid #a3b1ff;
+    outline: none;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    min-width: 60%;
+    max-width: 88%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: #3a7bd5; /* azul mais vibrante */
+  box-shadow: 0 0 8px 2px rgba(58, 123, 213, 0.5);
+  outline: none; /* remove a outline padrão do navegador */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
 }
 
