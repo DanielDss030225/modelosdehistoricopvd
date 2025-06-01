@@ -999,12 +999,32 @@ const input11 = document.getElementById('ocupacaoVitima'); // Substitua pelo ID 
 document.getElementById("showAlert").addEventListener("click", () => {
   // Obter os valores dos inputs
   const nomeVitima = document.getElementById("nomevitima").value;
-  const telefoneVitima = document.getElementById("telefonevitima").value;
+  let telefoneVitima = document.getElementById("telefoneVitima").value;
+
+// Remove tudo que não for número
+telefoneVitima = telefoneVitima.replace(/\D/g, "");
+
+// Pega apenas os 9 últimos dígitos
+telefoneVitima = telefoneVitima.slice(-9);
+
+// Formata como XXX-XXX-XXX
+telefoneVitima = telefoneVitima.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
   const rgVitima = document.getElementById("rgvitima").value;
   const cpfvitima = document.getElementById("cpfvitima").value;
   const cpfautor = document.getElementById("cpfautor").value;
   const nomeAutor = document.getElementById("nomeautor").value;
-  const telefoneAutor = document.getElementById("telefoneautor").value;
+let telefoneAutor = document.getElementById("telefoneautor").value;
+
+// Remove tudo que não for número
+telefoneAutor = telefoneAutor.replace(/\D/g, "");
+
+// Pega apenas os 9 últimos dígitos
+telefoneAutor = telefoneAutor.slice(-9);
+
+// Formata como XXX-XXX-XXX
+telefoneAutor = telefoneAutor.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+
+console.log("Telefone formatado:", telefoneAutor);
   const rgAutorOutro = document.getElementById("rgautor").value;
   const redsOrigem = document.getElementById("redsorigem").value;
   const medidaProtetiva = document.getElementById("medidaprotetiva").value;
@@ -1096,8 +1116,8 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const telefoneVitima = document.getElementById("telefonevitima").value;
   const rgVitima = document.getElementById("rgvitima").value;
   const cpfvitima = document.getElementById("cpfvitima").value;
-  const enderecoAutor= document.getElementById("enderecoAutor").value;
-  const ocupacaoAutor= document.getElementById("ocupacaoAutor").value;
+  const enderecoVitima = document.getElementById("enderecoVitima").value;
+  const ocupacaoVitima= document.getElementById("ocupacaoVitima").value;
   const campoESCOLARIDADE01 = document.querySelector('select[id="escolaridadeVitima"]');
   const valorSelecionado = campoESCOLARIDADE01 ? campoESCOLARIDADE01.value : null;
   const cor02 = document.querySelector('select[id="cor"]');
@@ -1110,19 +1130,22 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const dadosLista02 = [
     nomeVitima || "NULL",    //01        // Usa "N/A" caso o input esteja vazio
     telefoneVitima || "NULL", //02 
-    rgVitima || "NULL",//08  
-    cpfvitima || "NULL",//08  
-    enderecoAutor || "NULL",//11  
-    ocupacaoAutor || "NULL",//13 
-    valorSelecionado || "NULL",//13 
-    valorSelecionado1 || "NULL",//13 
-    valorSelecionado2 || "NULL",//13 
+    rgVitima || "NULL",//03  
+    cpfvitima || "NULL",//04  
+    enderecoVitima || "NULL",//5  
+    ocupacaoVitima || "NULL",//6
+    valorSelecionado || "NULL",//7 
+    valorSelecionado1 || "NULL",//8
+    valorSelecionado2 || "NULL",//9
 
 
   ];
     salvarDadosVitima("DADOSGERAIS", dadosLista02);
 });
    
+
+
+
  function salvarDadosAutor(DADOSGERAIS, dados) {
   const rgautor01 = document.getElementById("rgautor").value; 
   const nomeautor = document.getElementById("nomeautor").value; 
@@ -1154,13 +1177,10 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const cpfautor = document.getElementById("cpfautor").value;
   const enderecoAutor= document.getElementById("enderecoAutor").value;
   const ocupacaoAutor= document.getElementById("ocupacaoAutor").value;
-
   const estadoCivilAutor = document.querySelector('select[id="estadoCivilAutor"]');
   const valorSelecionado18 = estadoCivilAutor ? estadoCivilAutor.value : null;
-
   const campoCorAutor = document.querySelector('select[id="corAutor"]');
   const valorSelecionado17 = campoCorAutor ? campoCorAutor.value : null;
-
    const escolaridadeAutor = document.querySelector('select[id="escolaridadeAutor"]');
   const valorSelecionado16 = escolaridadeAutor ? escolaridadeAutor.value : null;
 
@@ -1172,9 +1192,9 @@ document.getElementById("showAlert").addEventListener("click", () => {
     cpfautor || "NULL",//04
     enderecoAutor || "NULL",//05
     ocupacaoAutor || "NULL",//06
-    valorSelecionado16 || "NULL",//06
-    valorSelecionado17 || "NULL",//06
-    valorSelecionado18 || "NULL",//06
+    valorSelecionado16 || "NULL",//07
+    valorSelecionado17 || "NULL",//08
+    valorSelecionado18 || "NULL",//09
   ];
 
   // Salvar no Firebase
