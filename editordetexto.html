@@ -743,20 +743,19 @@ document.getElementById("showAlert").addEventListener("click", () => {
 
   // Criar a lista dinamicamente com os valores capturados
   const dadosLista = [
-    nomeVitima || "NULL",        // Usa "N/A" caso o input esteja vazio
-    telefoneVitima || "NULL",
-    rgAutorOutro || "NULL",
-    nomeAutor || "NULL",
-    telefoneAutor || "NULL",
-    redsOrigem || "NULL",
-    medidaProtetiva || "NULL",
-    
-      cpfvitima || "NULL",
-            cpfautor || "NULL",
-    enderecoVitima || "NULL",
-    enderecoAutor || "NULL",
-    ocupacaoVitima || "NULL",
-    ocupacaoAutor || "NULL",
+    nomeVitima || "NULL",    //01        // Usa "N/A" caso o input esteja vazio
+    telefoneVitima || "NULL", //02
+    rgAutorOutro || "NULL",//03
+    nomeAutor || "NULL",//04   
+    telefoneAutor || "NULL",//05  
+    redsOrigem || "NULL",//06  
+    medidaProtetiva || "NULL",//07  
+    cpfvitima || "NULL",//08  
+    cpfautor || "NULL",//09  
+    enderecoVitima || "NULL",//10  
+    enderecoAutor || "NULL",//11  
+    ocupacaoVitima || "NULL",//12  
+    ocupacaoAutor || "NULL",//13 
 
 
   ];
@@ -764,10 +763,109 @@ document.getElementById("showAlert").addEventListener("click", () => {
   // Salvar no Firebase
   
   salvarDadosEmLista("DADOS", dadosLista);
+  
+
   teste()
 });
 
+
+
+ function salvarDadosVitima(DADOSGERAIS, dados) {
+  const rgvitimavalor01 = document.getElementById("rgvitima").value; 
+  const nomevitima = document.getElementById("nomevitima").value; 
+  console.log("ID da vítima:", rgvitimavalor01);
+  console.log("Nome da vítima", nomevitima);
+
+  
+  
+  const referencia = ref(db, `${DADOSGERAIS}/${rgvitimavalor01}`); // Usa o rgvitimavalor01 como o nó principal
+
+  // Aqui, você converte o array de dados para uma string JSON
+  const dadosArray = JSON.stringify(dados); // Converte os dados para um formato de string JSON
+
+  // Salva os dados como uma string representando um array
+  set(referencia, dadosArray) // Salva a string JSON representando o array
+    .then(() => {
+      console.log("Dados salvos com sucesso no Realtime Database!");
+    })
+    .catch((erro) => {
+      console.error("Erro ao salvar dados no Realtime Database:", erro);
+    });
+}
+
+// Capturar os valores dos inputs e salvar no Firebase
+document.getElementById("showAlert").addEventListener("click", () => {
+  // Obter os valores dos inputs
+  const nomeVitima = document.getElementById("nomevitima").value;
+  const telefoneVitima = document.getElementById("telefonevitima").value;
+  const rgVitima = document.getElementById("rgvitima").value;
+  const cpfvitima = document.getElementById("cpfvitima").value;
+  const enderecoAutor= document.getElementById("enderecoAutor").value;
+  const ocupacaoAutor= document.getElementById("ocupacaoAutor").value;
+
+  // Criar a lista dinamicamente com os valores capturados
+  const dadosLista02 = [
+    nomeVitima || "NULL",    //01        // Usa "N/A" caso o input esteja vazio
+    telefoneVitima || "NULL", //02 
+    rgVitima || "NULL",//08  
+    cpfvitima || "NULL",//08  
+    enderecoAutor || "NULL",//11  
+    ocupacaoAutor || "NULL",//13 
+
+
+  ];
+    salvarDadosVitima("DADOSGERAIS", dadosLista02);
+});
    
+ function salvarDadosAutor(DADOSGERAIS, dados) {
+  const rgautor01 = document.getElementById("rgautor").value; 
+  const nomeautor = document.getElementById("nomeautor").value; 
+  console.log("ID do autor:", rgautor01);
+  console.log("Nome da autor", nomeautor);
+
+  
+  const referencia = ref(db, `${DADOSGERAIS}/${rgautor01}`); // Usa o rgvitimavalor01 como o nó principal
+
+  // Aqui, você converte o array de dados para uma string JSON
+  const dadosArray = JSON.stringify(dados); // Converte os dados para um formato de string JSON
+
+  // Salva os dados como uma string representando um array
+  set(referencia, dadosArray) // Salva a string JSON representando o array
+    .then(() => {
+      console.log("Dados salvos com sucesso no Realtime Database!");
+    })
+    .catch((erro) => {
+      console.error("Erro ao salvar dados no Realtime Database:", erro);
+    });
+}
+
+// Capturar os valores dos inputs e salvar no Firebase
+document.getElementById("showAlert").addEventListener("click", () => {
+  // Obter os valores dos inputs
+  const nomeAutor = document.getElementById("nomeautor").value;
+  const telefoneAutor = document.getElementById("telefoneautor").value;
+  const rgAutorOutro = document.getElementById("rgautor").value;
+  const cpfautor = document.getElementById("cpfautor").value;
+  const enderecoAutor= document.getElementById("enderecoAutor").value;
+  const ocupacaoAutor= document.getElementById("ocupacaoAutor").value;
+
+  // Criar a lista dinamicamente com os valores capturados
+  const dadosLista03 = [
+    nomeAutor || "NULL",//04   
+    telefoneAutor || "NULL",//05  
+    rgAutorOutro || "NULL",//03
+    cpfautor || "NULL",//09  
+    enderecoAutor || "NULL",//11  
+    ocupacaoAutor || "NULL",//13 
+
+
+  ];
+
+  // Salvar no Firebase
+  
+  salvarDadosAutor("DADOSGERAIS", dadosLista03);
+
+});
  
   </script>
   <script>

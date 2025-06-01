@@ -32,12 +32,12 @@ if (ocorrencia == "") {
 }
 if (nomevitima == "") {
   nomevitima = "*********"
-}
-if (rgvitima == "") {
-  rgvitima = "*********"
 } else {
   mostrarAlertaSucesso()
 }
+if (rgvitima == "") {
+  rgvitima = "*********"
+} 
 if (telefoneautor == "") {
   telefoneautor = "*********"
 }
