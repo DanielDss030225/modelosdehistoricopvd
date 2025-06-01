@@ -999,32 +999,32 @@ const input11 = document.getElementById('ocupacaoVitima'); // Substitua pelo ID 
 document.getElementById("showAlert").addEventListener("click", () => {
   // Obter os valores dos inputs
   const nomeVitima = document.getElementById("nomevitima").value;
-  let telefoneVitima = document.getElementById("telefoneVitima").value;
-
-// Remove tudo que não for número
-telefoneVitima = telefoneVitima.replace(/\D/g, "");
-
-// Pega apenas os 9 últimos dígitos
-telefoneVitima = telefoneVitima.slice(-9);
-
-// Formata como XXX-XXX-XXX
-telefoneVitima = telefoneVitima.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
   const rgVitima = document.getElementById("rgvitima").value;
   const cpfvitima = document.getElementById("cpfvitima").value;
   const cpfautor = document.getElementById("cpfautor").value;
   const nomeAutor = document.getElementById("nomeautor").value;
-let telefoneAutor = document.getElementById("telefoneautor").value;
 
+
+
+let telefoneAutor = document.getElementById("telefoneautor").value;
 // Remove tudo que não for número
 telefoneAutor = telefoneAutor.replace(/\D/g, "");
-
 // Pega apenas os 9 últimos dígitos
 telefoneAutor = telefoneAutor.slice(-9);
-
 // Formata como XXX-XXX-XXX
 telefoneAutor = telefoneAutor.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
-
 console.log("Telefone formatado:", telefoneAutor);
+
+let telefoneVitima = document.getElementById("telefonevitima").value;
+// Remove tudo que não for número
+telefoneVitima = telefoneVitima.replace(/\D/g, "");
+// Pega apenas os 9 últimos dígitos
+telefoneVitima = telefoneVitima.slice(-9);
+// Formata como XXX-XXX-XXX
+telefoneVitima = telefoneVitima.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+console.log("Telefone formatado:", telefoneVitima);
+
+
   const rgAutorOutro = document.getElementById("rgautor").value;
   const redsOrigem = document.getElementById("redsorigem").value;
   const medidaProtetiva = document.getElementById("medidaprotetiva").value;
@@ -1113,7 +1113,6 @@ console.log("Telefone formatado:", telefoneAutor);
 document.getElementById("showAlert").addEventListener("click", () => {
   // Obter os valores dos inputs
   const nomeVitima = document.getElementById("nomevitima").value;
-  const telefoneVitima = document.getElementById("telefonevitima").value;
   const rgVitima = document.getElementById("rgvitima").value;
   const cpfvitima = document.getElementById("cpfvitima").value;
   const enderecoVitima = document.getElementById("enderecoVitima").value;
@@ -1124,6 +1123,18 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const valorSelecionado1 = cor02 ? cor02.value : null;
   const estadoCivil02 = document.querySelector('select[id="estadoCivil"]');
   const valorSelecionado2 = estadoCivil02 ? estadoCivil02.value : null;
+
+
+let telefoneVitima = document.getElementById("telefonevitima").value;
+// Remove tudo que não for número
+telefoneVitima = telefoneVitima.replace(/\D/g, "");
+// Pega apenas os 9 últimos dígitos
+telefoneVitima = telefoneVitima.slice(-9);
+// Formata como XXX-XXX-XXX
+telefoneVitima = telefoneVitima.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+console.log("Telefone formatado:", telefoneVitima);
+
+
 
   
   // Criar a lista dinamicamente com os valores capturados
@@ -1172,7 +1183,6 @@ document.getElementById("showAlert").addEventListener("click", () => {
 document.getElementById("showAlert").addEventListener("click", () => {
   // Obter os valores dos inputs
   const nomeAutor = document.getElementById("nomeautor").value;
-  const telefoneAutor = document.getElementById("telefoneautor").value;
   const rgAutorOutro = document.getElementById("rgautor").value;
   const cpfautor = document.getElementById("cpfautor").value;
   const enderecoAutor= document.getElementById("enderecoAutor").value;
@@ -1183,6 +1193,20 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const valorSelecionado17 = campoCorAutor ? campoCorAutor.value : null;
    const escolaridadeAutor = document.querySelector('select[id="escolaridadeAutor"]');
   const valorSelecionado16 = escolaridadeAutor ? escolaridadeAutor.value : null;
+
+
+let telefoneAutor = document.getElementById("telefoneautor").value;
+// Remove tudo que não for número
+telefoneAutor = telefoneAutor.replace(/\D/g, "");
+// Pega apenas os 9 últimos dígitos
+telefoneAutor = telefoneAutor.slice(-9);
+// Formata como XXX-XXX-XXX
+telefoneAutor = telefoneAutor.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+console.log("Telefone formatado:", telefoneAutor);
+
+
+
+
 
   // Criar a lista dinamicamente com os valores capturados
   const dadosLista03 = [
