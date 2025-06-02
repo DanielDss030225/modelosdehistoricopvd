@@ -94,29 +94,23 @@
     <fieldset> 
       
       <legend> Digite os dados da vítima</legend>
-        <ul> 
-
-   <li>
-        
-     <input onblur="this.value = this.value.trim(), obterDadosDoFirebase(), mostrarCarregamento();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                           
-            
-     
+       
+      <ul> 
+   <li>     
+     <input onblur="this.value = this.value.trim(), obterDadosDoFirebase(), mostrarCarregamento();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
  </li> 
  <li> 
   <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  
-
-
  </li>
   <li> 
   <input  onblur="this.value = this.value.trim();" id="cpfvitima" type="number" placeholder="CPF DA VÍTIMA" >                  
-
-
  </li>
        <li>
         <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonevitima" type="tel" placeholder="TELEFONE DA VÍTIMA" > 
-
        </li>   
        </ul>  
+
+
 
 <ul> 
      <li class="ulEndereco">
@@ -128,6 +122,26 @@
 
   </li>
 </ul> 
+
+
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeVitima"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaiVitima" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentovitima" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
 
 
 <ul> 
@@ -222,6 +236,26 @@
  </ul>
  
 
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaeAutor"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaiAutor" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentoautor" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
+
+
 <ul> 
   <li class="ulEndereco">
   <select class="ocorrencia" id="escolaridadeAutor">
@@ -274,8 +308,6 @@
       <legend> Dados complementares</legend>
 
 <ul> 
-
-
 
  <li class="ulEndereco">
 
@@ -764,6 +796,102 @@ const lista18 = resultado;
 const indice1818 = 18; // Índice do elemento que deseja obter
 const elemento18 = indice18(lista18, indice1818);
 
+
+
+
+
+   //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 19
+  function indice19(resultado, indice1919) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice1919 >= 19 && indice1919< resultado.length) {
+      return resultado[indice1919];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista19 = resultado;
+const indice1919 = 19; // Índice do elemento que deseja obter
+const elemento19 = indice19(lista19, indice1919);
+
+
+
+   //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 20
+  function indice20(resultado, indice2020) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice2020 >= 20 && indice2020< resultado.length) {
+      return resultado[indice2020];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista20 = resultado;
+const indice2020 = 20; // Índice do elemento que deseja obter
+const elemento20 = indice20(lista20, indice2020);
+
+
+   //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 21
+  function indice21(resultado, indice2121) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice2121 >= 21 && indice2121< resultado.length) {
+      return resultado[indice2121];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista21 = resultado;
+const indice2121 = 21; // Índice do elemento que deseja obter
+const elemento21 = indice21(lista21, indice2121);
+
+
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 22
+  function indice30(resultado, indice3030) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice3030 >= 22 && indice3030< resultado.length) {
+      return resultado[indice3030];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista30 = resultado;
+const indice3030 = 22; // Índice do elemento que deseja obter
+const elemento30 = indice30(lista30, indice3030);
+
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 23
+  function indice31(resultado, indice3131) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice3131 >= 23 && indice3131< resultado.length) {
+      return resultado[indice3131];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista31 = resultado;
+const indice3131 = 23; // Índice do elemento que deseja obter
+const elemento31 = indice31(lista31, indice3131);
+
+
+  //FUNÇÃO QUE OBTEM INDICES DE UMA LISTA 24
+  function indice32(resultado, indice3232) {
+    // Verifica se o índice está dentro do intervalo válido
+    if (indice3232 >= 24 && indice3232< resultado.length) {
+      return resultado[indice3232];
+    } else {
+      return "";
+    }
+  }
+  // Exemplo de uso
+const lista32 = resultado;
+const indice3232 = 24; // Índice do elemento que deseja obter
+const elemento32 = indice32(lista32, indice3232);
+
+
+
+
   //AJUSTA O VALOR DOS SELECTS
 //SELETORES AUTOR
 //SELETORES AUTOR
@@ -852,6 +980,57 @@ if (elemento15 && seletorEVitima03) {
 }
 
   //AJUSTA O VALOR DOS INPUTS
+  //AJUSTA O VALOR DOS INPUTS
+
+    //AJUSTA O VALOR DOS INPUTS
+
+      //AJUSTA O VALOR DOS INPUTS
+
+  const input19 = document.getElementById('nomeMaeVitima'); // Substitua pelo ID do seu input
+    if (elemento19 == "NULL") {
+      input19.value = "";
+    } else {
+      input19.value = elemento19;
+    }
+
+
+  const input20 = document.getElementById('nomePaiVitima'); // Substitua pelo ID do seu input
+    if (elemento20 == "NULL") {
+      input20.value = "";
+    } else {
+      input20.value = elemento20;
+    }
+
+  const input21 = document.getElementById('datanascimentovitima'); // Substitua pelo ID do seu input
+    if (elemento21 == "NULL") {
+      input21.value = "";
+    } else {
+      input21.value = elemento21;
+    }
+
+
+  const input30 = document.getElementById('nomeMaeAutor'); // Substitua pelo ID do seu input
+    if (elemento30 == "NULL") {
+      input30.value = "";
+    } else {
+      input30.value = elemento30;
+    }
+
+
+  const input31 = document.getElementById('nomePaiAutor'); // Substitua pelo ID do seu input
+    if (elemento31 == "NULL") {
+      input31.value = "";
+    } else {
+      input31.value = elemento31;
+    }
+
+      const input32 = document.getElementById('datanascimentoautor'); // Substitua pelo ID do seu input
+    if (elemento32 == "NULL") {
+      input32.value = "";
+    } else {
+      input32.value = elemento32;
+    }
+
 
   const input0 = document.getElementById('nomevitima'); // Substitua pelo ID do seu input
     if (elemento0 == "NULL") {
@@ -1003,6 +1182,12 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const cpfvitima = document.getElementById("cpfvitima").value;
   const cpfautor = document.getElementById("cpfautor").value;
   const nomeAutor = document.getElementById("nomeautor").value;
+  const nomeMaeVitima = document.getElementById("nomeMaeVitima").value;
+  const nomePaiVitima = document.getElementById("nomePaiVitima").value;
+  const datanascimentovitima = document.getElementById("datanascimentovitima").value;
+  const nomeMaeAutor = document.getElementById("nomeMaeAutor").value;
+  const nomePaiAutor = document.getElementById("nomePaiAutor").value;
+  const datanascimentoautor = document.getElementById("datanascimentoautor").value;
 
 
 
@@ -1072,6 +1257,12 @@ console.log("Telefone formatado:", telefoneVitima);
     valorSelecionado16 || "NULL",//16
     valorSelecionado17 || "NULL",//16
     valorSelecionado18 || "NULL",//16
+    nomeMaeVitima || "NULL",//16
+    nomePaiVitima || "NULL",//16
+    datanascimentovitima || "NULL",//16
+    nomeMaeAutor || "NULL",//16
+    nomePaiAutor || "NULL",//16
+    datanascimentoautor || "NULL",//16
 
 
   ];
@@ -1123,6 +1314,11 @@ document.getElementById("showAlert").addEventListener("click", () => {
   const valorSelecionado1 = cor02 ? cor02.value : null;
   const estadoCivil02 = document.querySelector('select[id="estadoCivil"]');
   const valorSelecionado2 = estadoCivil02 ? estadoCivil02.value : null;
+ const nomeMaeVitima = document.getElementById("nomeMaeVitima").value;
+  const nomePaiVitima = document.getElementById("nomePaiVitima").value;
+  const datanascimentovitima = document.getElementById("datanascimentovitima").value;
+  
+
 
 
 let telefoneVitima = document.getElementById("telefonevitima").value;
@@ -1148,6 +1344,9 @@ console.log("Telefone formatado:", telefoneVitima);
     valorSelecionado || "NULL",//7 
     valorSelecionado1 || "NULL",//8
     valorSelecionado2 || "NULL",//9
+nomeMaeVitima || "NULL",//7 
+    nomePaiVitima || "NULL",//8
+    datanascimentovitima || "NULL",//9
 
 
   ];
@@ -1194,6 +1393,10 @@ document.getElementById("showAlert").addEventListener("click", () => {
    const escolaridadeAutor = document.querySelector('select[id="escolaridadeAutor"]');
   const valorSelecionado16 = escolaridadeAutor ? escolaridadeAutor.value : null;
 
+  const nomeMaeAutor = document.getElementById("nomeMaeAutor").value;
+  const nomePaiAutor = document.getElementById("nomePaiAutor").value;
+  const datanascimentoautor = document.getElementById("datanascimentoautor").value;
+
 
 let telefoneAutor = document.getElementById("telefoneautor").value;
 // Remove tudo que não for número
@@ -1219,6 +1422,10 @@ console.log("Telefone formatado:", telefoneAutor);
     valorSelecionado16 || "NULL",//07
     valorSelecionado17 || "NULL",//08
     valorSelecionado18 || "NULL",//09
+        nomeMaeAutor || "NULL",//09
+            nomePaiAutor || "NULL",//09
+    datanascimentoautor || "NULL",//09
+
   ];
 
   // Salvar no Firebase
