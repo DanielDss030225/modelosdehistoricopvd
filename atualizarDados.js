@@ -1,11 +1,4 @@
-
- 
- 
- 
- 
- 
- 
- function teste() {
+function teste() {
     
 let nome =  document.getElementById("titulopag").textContent; 
 
