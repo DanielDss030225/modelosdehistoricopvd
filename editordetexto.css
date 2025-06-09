@@ -13,7 +13,7 @@ body.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
 }
 
 /* Cabeçalho */
@@ -30,6 +30,8 @@ body.container {
   color: white;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(65, 88, 208, 0.4);
+    margin-top: 20px;
+
 }
 
 .cabeçalho p#user-info {

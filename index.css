@@ -34,7 +34,7 @@ body {
   font-weight: 700;
   color: white;
   transition: background-color 0.3s ease;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .cabeçalho button:hover {
@@ -217,33 +217,6 @@ h2 {
   color: #4158d0;
 }
 
-
-.cabeçalho {
-  background-color: #4158d0; /* azul escuro */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.cabeçalho button {
-  width: 100px;
-  height: 30px;
-  font-size: 14px;
-  cursor: pointer;
-  color: white;
-  background-color: #6a6aff; /* azul médio */
-  border-color: #6a6aff;
-  border-radius: 10px;
-  margin-right: 60px;
-  align-items: center;
-  margin-left: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.cabeçalho button:hover {
-  background-color: #4e4eff; /* azul hover */
-}
 
 .cabeçalho p {
   color: white;
