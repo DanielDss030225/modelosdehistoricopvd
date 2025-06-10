@@ -1,21 +1,6 @@
-// firebase-main.js
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
-
-// Configuração do Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDQWO9csuYqrd0JyXa_cs4f3jAsjQAEWSw",
-  authDomain: "meu-site-fd954.firebaseapp.com",
-  projectId: "meu-site-fd954",
-  storageBucket: "meu-site-fd954.firebasestorage.app",
-  messagingSenderId: "1062346912662",
-  appId: "1:1062346912662:web:0f41873e12965c545363b7",
-  measurementId: "G-5HXX5ZZKER"
-};
-
-// Inicializar Firebase
+import {AtualizarDados} from "./atualizarDados.js";
+import { firebaseConfig, initializeApp, getAuth, onAuthStateChanged, signOut, getDatabase, ref, set  } from "./firebaseKeys.js";
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const auth = getAuth(app);
@@ -53,14 +38,14 @@ function esconderAlerta() {
   if (alertBox) alertBox.style.display = "none";
 }
 
-function mostrarAlertaSucesso() {
+ function mostrarAlertaSucesso() {
   if (alertaSucesso) {
     alertaSucesso.style.display = "block";
     setTimeout(() => {
       alertaSucesso.style.display = "none";
     }, 4000);
   }
-}
+};
 
 // Fechar alerta ao clicar no botão
 if(closeAlertButton){
@@ -92,39 +77,8 @@ function salvarDadosEmLista(caminho, dados) {
     .catch(erro => console.error("Erro ao salvar dados:", erro));}
 };
 
-function salvarDadosVitima(caminho, dados) {
-  const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
-  const nomevitima = document.getElementById("nomevitima")?.value;
-
-  if (!rgvitimavalor01 || !nomevitima) {
-    mostrarAlerta();
-  } else {
-
-  const referencia = ref(db, `${caminho}/${rgvitimavalor01}`);
-  const dadosJSON = JSON.stringify(dados);
-
-  set(referencia, dadosJSON)
-    .then(() => console.log("Dados da vítima salvos com sucesso!"))
-    .catch(erro => console.error("Erro ao salvar dados da vítima:", erro));
- 
 
 
-
-}};
-
-function salvarDadosAutor(caminho, dados) {
-  const rgautor01 = document.getElementById("rgautor")?.value;
-  const nomeautor = document.getElementById("nomeautor")?.value;
-
-  if (!rgautor01 || !nomeautor) {
-    mostrarAlerta();
-  } else {
-  const referencia = ref(db, `${caminho}/${rgautor01}`);
-  const dadosJSON = JSON.stringify(dados);
-  set(referencia, dadosJSON)
-    .then(() => console.log("Dados do autor salvos com sucesso!"))
-    .catch(erro => console.error("Erro ao salvar dados do autor:", erro));
-}};
 
 
 
@@ -138,7 +92,7 @@ function formatarTelefone(telefone) {
 
 // Evento ao clicar no botão "showAlert"
 document.getElementById("showAlert")?.addEventListener("click", () => {
-
+ 
   // Capturar dados dos inputs
   const nomeVitima = document.getElementById("nomevitima")?.value || "NULL";
   const rgVitima = document.getElementById("rgvitima")?.value || "NULL";
@@ -201,35 +155,6 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
 
  
 
-  const dadosListaVitima = [
-    nomeVitima,
-    telefoneVitima,
-    rgVitima,
-    cpfVitima,
-    enderecoVitima,
-    ocupacaoVitima,
-    escolaridadeVitima,
-    corVitima,
-    estadoCivilVitima,
-    nomeMaeVitima,
-    nomePaiVitima,
-    dataNascimentoVitima
-  ];
-
-  const dadosListaAutor = [
-    nomeAutor,
-    telefoneAutor,
-    rgAutorOutro,
-    cpfAutor,
-    enderecoAutor,
-    ocupacaoAutor,
-    escolaridadeAutor,
-    corAutor,
-    estadoCivilAutor,
-    nomeMaeAutor,
-    nomePaiAutor,
-    dataNascimentoAutor
-  ];
 
   if(!rgAutorOutro.trim()) {
     alert("Preencha o RG do autor.");
@@ -238,14 +163,12 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
 
   // Salvar dados no Firebase
   salvarDadosEmLista("DADOS", dadosLista);
-  salvarDadosAutor("DADOSGERAIS", dadosListaAutor);
-  salvarDadosVitima("DADOSGERAIS", dadosListaVitima);
 let block = document.getElementById("rgvitima").value;
 
     if (rgVitima == "NULL") {
   } else if (nomeVitima == "NULL") {
      }
-    else { mostrarAlertaSucesso();
+    else { mostrarAlertaSucesso(), AtualizarDados();
 
   };
 
@@ -260,3 +183,5 @@ window.onload = function () {
 
   showText(); // Chama sua função aqui
 };
+
+export {mostrarAlertaSucesso};

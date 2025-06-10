@@ -1,5 +1,7 @@
-function teste() {
-    
+import {mostrarAlertaSucesso} from "./firebase-salvar-valores.js";
+
+export function AtualizarDados()  {
+  
 let nome =  document.getElementById("titulopag").textContent; 
 
 let titulo = nome
@@ -26,7 +28,7 @@ if (ocorrencia == "") {
 if (nomevitima == "") {
   nomevitima = "*********"
 } else {
-  mostrarAlertaSucesso()
+mostrarAlertaSucesso()
 }
 if (rgvitima == "") {
   rgvitima = "*********"
@@ -39,9 +41,7 @@ if (telefonevitima == "") {
 }
 if (medidaprotetiva == "") {
   medidaprotetiva = "*********"
-}
-
-
+};
 
 
 if ( nome=="PASSO DO PROTOCOLO DE 2ª RESPOSTA DO SPVD: ASSISTIDO NÃO LOCALIZADO") {
@@ -229,4 +229,8 @@ if ( nome=="CONVITE PARA PARTICIPAÇÃO EM GRUPO REFLEXIVO") {
 
 
 
-   }
+  };
+
+
+// Exportando a função
+window.AtualizarDados = AtualizarDados();
