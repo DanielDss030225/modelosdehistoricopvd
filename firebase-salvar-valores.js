@@ -109,7 +109,6 @@ function salvarDadosEmListaAutor(caminho, dados) {
 };
 
 
-
 function salvarDadosEmListaVitima(caminho, dados) {
 
    const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
@@ -138,6 +137,31 @@ let changedElement = document.getElementById("elementoRG");
 
 
 
+function salvarDadosEmListaComplementar(caminho, dados) {
+
+   const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
+  const nomevitima = document.getElementById("nomevitima")?.value;
+let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o NOME e RG da vítima!"
+
+  if (!rgvitimavalor01) {
+    mostrarAlerta();
+    console.error("O ID da vítima está vazio.");
+    return;
+  } else if (!nomevitima) {
+    mostrarAlerta();
+    console.error("O ID da vítima está vazio.");
+    
+  } else {
+          mostrarNotificacao("✅ Dados complementares salvos/atualizados com sucesso!");
+
+  const referencia = ref(db, `${caminho}/${rgvitimavalor01}`);
+  const dadosJSON = JSON.stringify(dados);
+
+  set(referencia, dadosJSON)
+    .then(() => console.log("Dados salvos com sucesso no Realtime Database!"))
+    .catch(erro => console.error("Erro ao salvar dados:", erro));}
+};
 function mostrarNotificacao(mensagem, tempo = 2000) {
   const notif = document.createElement("div");
   notif.textContent = mensagem;
@@ -271,8 +295,8 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
     nomeMaeAutor, //9
     nomePaiAutor, //10
     dataNascimentoAutor, //11
-    medidaProtetiva, //12
-     redsOrigem  //13
+    medidaProtetiva, //14
+     redsOrigem  //15
 
     
   ];
@@ -298,6 +322,15 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
   ];
 
 
+  // Montar os arrays com dados para salvar
+  const dadosListaComplementar = [
+   
+    rgVitima, //2
+   rgAutorOutro,   //2
+    medidaProtetiva, //12
+    redsOrigem  //13
+    
+  ];
   
 
 
@@ -314,12 +347,14 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
     mostrarAlerta();
 
 } else {  
-    salvarDadosEmListaAutor("DADOSGERAIS", dadosListaAutor);
+     salvarDadosEmListaComplementar("DADOSCOMPLEMENTARES", dadosListaComplementar);
+
  AtualizarDados();
 
   }
   // Salvar dados no Firebase
  //salvarDadosEmLista("DADOS", dadosLista);
+   // salvarDadosEmListaAutor("DADOSGERAIS", dadosListaAutor);
 
 
 

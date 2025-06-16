@@ -138,6 +138,9 @@ obterDadosVitima();
 //function to obtain dados of victim
 
 window.obterDadosVitima = async function (path, dados) {
+
+      obterDadosComplemetares();
+
   const rg = rgVitima.value;
   
   if (!rg){ 
@@ -199,7 +202,6 @@ window.obterDadosVitima = async function (path, dados) {
     
   };
 
-
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
   }
@@ -211,6 +213,8 @@ for (const [id, indice] of Object.entries(mapeamentoInputs)) {
 
 // Function to obtain dados of author
 window.obterDadosAutor = async function (path, dados) {
+    obterDadosComplemetares();
+
   const rg = rgAutorOutro.value
   
   if (!rg){ 
@@ -266,11 +270,71 @@ window.obterDadosAutor = async function (path, dados) {
     ocupacaoAutor: 5,
     cpfautor: 3,
     telefoneautor: 1,
-    redsorigem: 13,
-    medidaprotetiva: 12
+
   };
+
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
   };
 };
 //NECESSÁRIO AJUSTAR A ORDEM DOS INDICES NOS INPUTS
+
+
+
+window.obterDadosComplemetares = async function (path, dados) {
+  const rg = rgVitima.value;
+  if (!rg){ 
+    alert("Digite o RG da vítima para ver os dados complementares salvos do casal.")
+
+  } else {
+     mostrarCarregamento();
+  };
+
+  const snapshot = await get(ref(db, `DADOSCOMPLEMENTARES/${rg}`));
+  ocultarCarregamento();
+
+  const valor = snapshot.val();
+  if (!valor) return console.error("ERRO: RG Não cadastrado no sistema!");
+
+  let entrada;
+  try {
+    entrada = JSON.parse(valor);
+  } catch (e) {
+    return console.error("Erro ao converter dados JSON", e);
+  };
+
+  // Converte para array de strings
+  const dadosArray = Array.isArray(entrada)
+    ? entrada.map(item => item === null ? "NULL" : String(item))
+    : new Array(25).fill("");
+  // Função genérica para atualizar selects
+  function atualizarSelect(id, valor) {
+    const select = document.querySelector(`select[id="${id}"]`);
+    if (select && valor !== "NULL") {
+      const valorLimpo = valor.trim();
+      const optionExists = Array.from(select.options).some(opt => opt.value.trim() === valorLimpo);
+      if (optionExists) select.value = valorLimpo;
+      else console.warn(`Valor "${valorLimpo}" não encontrado nas opções de '${id}'.`);
+    }
+  };
+
+  // Função genérica para atualizar inputs
+  function atualizarInput(id, valor) {
+    const input = document.getElementById(id);
+    if (input) input.value = (valor === "NULL") ? "" : valor;
+  };
+
+
+
+
+  const mapeamentoInputs = {
+  
+   redsorigem: 2,
+   medidaprotetiva: 3
+  };
+
+
+for (const [id, indice] of Object.entries(mapeamentoInputs)) {
+    atualizarInput(id, dadosArray[indice] || "");
+  }
+};
