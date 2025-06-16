@@ -32,7 +32,7 @@
 
 
 <div id="alertaSucesso" class="alerta-sucesso" style="display: none;">
-  Pronto! Novos dados alterados e salvos com sucesso!
+  Pronto! Os campos "*******"  foram substituidos com sucesso!
 </div>
 
 
@@ -61,7 +61,7 @@
   <!-- Div do alerta oculta inicialmente -->
   <div id="fullscreenAlert" class="alert-fullscreen" style="display: none;">
     <div class="elementoP" >
-      <p class="MensagemFechar" >É preciso preencher o NOME e RG da vítima!</p>
+      <p id="elementoRG" class="MensagemFechar" >É preciso preencher o NOME e RG da vítima!</p>
       <button id="closeAlert">Fechar</button>
     </div>
   </div>
@@ -89,7 +89,7 @@
        
       <ul> 
    <li>     
-     <input onblur="this.value = this.value.trim(), obterDadosDoFirebase();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
+     <input onblur="this.value = this.value.trim(), obterDadosVitima();" class="tamanhorg" id="rgvitima"  type="number" placeholder="RG DA VÍTIMA" >                                  
  </li> 
  <li> 
   <input  onblur="this.value = this.value.trim();" id="nomevitima" type="text" placeholder="NOME DA VÍTIMA" >                  

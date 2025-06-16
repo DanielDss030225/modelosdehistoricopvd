@@ -1,5 +1,6 @@
 import {mostrarAlertaSucesso} from "./firebase-salvar-valores.js";
 
+ 
 export function AtualizarDados()  {
   
 let nome =  document.getElementById("titulopag").textContent; 
@@ -21,14 +22,19 @@ if (nomeautor == "") {
 }
 if (rgautor == "") {
   rgautor = "*********"
+} else {
+
+ mostrarAlertaSucesso();
 }
+
 if (ocorrencia == "") {
   ocorrencia = "*********"
 }
 if (nomevitima == "") {
   nomevitima = "*********"
 } else {
-mostrarAlertaSucesso()
+
+ mostrarAlertaSucesso();
 }
 if (rgvitima == "") {
   rgvitima = "*********"

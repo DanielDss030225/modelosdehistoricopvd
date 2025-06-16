@@ -56,8 +56,12 @@ if(closeAlertButton){
 
 // Funções para salvar dados no Firebase Realtime Database
 function salvarDadosEmLista(caminho, dados) {
+
+
   const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
   const nomevitima = document.getElementById("nomevitima")?.value;
+let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o NOME e RG da vítima!"
 
   if (!rgvitimavalor01) {
     mostrarAlerta();
@@ -78,8 +82,60 @@ function salvarDadosEmLista(caminho, dados) {
 };
 
 
+function salvarDadosEmListaAutor(caminho, dados) {
+          mostrarNotificacao("✅ Dados do autor salvos/atualizados com sucesso!");
+
+  const rgautor = document.getElementById("rgautor")?.value;
+  const nomeautor = document.getElementById("nomeautor")?.value;
+  let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o NOME e RG do autor!"
+
+  if (!rgautor) {
+    mostrarAlerta();
+    console.error("O ID do autor está vazio.");
+    return;
+  } else if (!nomeautor) {
+    mostrarAlerta();
+    console.error("O nome do autor está vazio.");
+    
+  } else {
+
+  const referencia = ref(db, `${caminho}/${rgautor}`);
+  const dadosJSON = JSON.stringify(dados);
+
+  set(referencia, dadosJSON)
+    .then(() => console.log("Dados salvos com sucesso no Realtime Database!"))
+    .catch(erro => console.error("Erro ao salvar dados:", erro));}
+};
 
 
+
+
+
+function mostrarNotificacao(mensagem, tempo = 3000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "#28a745"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
+
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
+}
 
 
 // Função para formatar telefone: remove não numéricos, pega últimos 9 dígitos e formata XXX-XXX-XXX
@@ -92,7 +148,7 @@ function formatarTelefone(telefone) {
 
 // Evento ao clicar no botão "showAlert"
 document.getElementById("showAlert")?.addEventListener("click", () => {
- 
+
   // Capturar dados dos inputs
   const nomeVitima = document.getElementById("nomevitima")?.value || "NULL";
   const rgVitima = document.getElementById("rgvitima")?.value || "NULL";
@@ -153,24 +209,41 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
     
   ];
 
- 
+  const dadosListaAutor = [
+    nomeAutor,  //0
+    telefoneAutor, //1
+    rgAutorOutro,   //2
+    cpfAutor, //3
+    enderecoAutor, //4
+    ocupacaoAutor, //5
+    escolaridadeAutor, //6
+    corAutor, //7
+    estadoCivilAutor, //8
+    nomeMaeAutor, //9
+    nomePaiAutor, //10
+    dataNascimentoAutor, //11
+    medidaProtetiva, //12
+     redsOrigem  //13
+
+    
+  ];
+  
 
 
   if(!rgAutorOutro.trim()) {
     alert("Preencha o RG do autor.");
     return;
   }
+  salvarDadosEmListaAutor("DADOSGERAIS", dadosListaAutor);
 
   // Salvar dados no Firebase
-  salvarDadosEmLista("DADOS", dadosLista);
-let block = document.getElementById("rgvitima").value;
+ //salvarDadosEmLista("DADOS", dadosLista);
 
-    if (rgVitima == "NULL") {
-  } else if (nomeVitima == "NULL") {
-     }
-    else { mostrarAlertaSucesso(), AtualizarDados();
 
-  };
+
+ AtualizarDados();
+
+  
 
 
 });

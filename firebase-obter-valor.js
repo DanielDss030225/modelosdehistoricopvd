@@ -196,6 +196,7 @@ window.obterDadosVitima = async function (path, dados) {
     enderecoVitima: 4,
     ocupacaoVitima: 5,
     telefonevitima: 1,
+    
   };
 
 
@@ -265,6 +266,8 @@ window.obterDadosAutor = async function (path, dados) {
     ocupacaoAutor: 5,
     cpfautor: 3,
     telefoneautor: 1,
+    redsorigem: 13,
+    medidaprotetiva: 12
   };
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
