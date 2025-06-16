@@ -83,7 +83,6 @@ let changedElement = document.getElementById("elementoRG");
 
 
 function salvarDadosEmListaAutor(caminho, dados) {
-          mostrarNotificacao("✅ Dados do autor salvos/atualizados com sucesso!");
 
   const rgautor = document.getElementById("rgautor")?.value;
   const nomeautor = document.getElementById("nomeautor")?.value;
@@ -99,6 +98,7 @@ function salvarDadosEmListaAutor(caminho, dados) {
     console.error("O nome do autor está vazio.");
     
   } else {
+          mostrarNotificacao2("✅ Dados do autor salvos/atualizados com sucesso!");
 
   const referencia = ref(db, `${caminho}/${rgautor}`);
   const dadosJSON = JSON.stringify(dados);
@@ -110,9 +110,35 @@ function salvarDadosEmListaAutor(caminho, dados) {
 
 
 
+function salvarDadosEmListaVitima(caminho, dados) {
+
+   const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
+  const nomevitima = document.getElementById("nomevitima")?.value;
+let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o NOME e RG da vítima!"
+
+  if (!rgvitimavalor01) {
+    mostrarAlerta();
+    console.error("O ID da vítima está vazio.");
+    return;
+  } else if (!nomevitima) {
+    mostrarAlerta();
+    console.error("O ID da vítima está vazio.");
+    
+  } else {
+          mostrarNotificacao("✅ Dados da vítima salvos/atualizados com sucesso!");
+
+  const referencia = ref(db, `${caminho}/${rgvitimavalor01}`);
+  const dadosJSON = JSON.stringify(dados);
+
+  set(referencia, dadosJSON)
+    .then(() => console.log("Dados salvos com sucesso no Realtime Database!"))
+    .catch(erro => console.error("Erro ao salvar dados:", erro));}
+};
 
 
-function mostrarNotificacao(mensagem, tempo = 3000) {
+
+function mostrarNotificacao(mensagem, tempo = 2000) {
   const notif = document.createElement("div");
   notif.textContent = mensagem;
   notif.style.position = "fixed";
@@ -136,7 +162,30 @@ function mostrarNotificacao(mensagem, tempo = 3000) {
   }, tempo);
 
 }
+function mostrarNotificacao2(mensagem, tempo = 4000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "#28a745"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
 
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
+}
 
 // Função para formatar telefone: remove não numéricos, pega últimos 9 dígitos e formata XXX-XXX-XXX
 function formatarTelefone(telefone) {
@@ -229,19 +278,51 @@ document.getElementById("showAlert")?.addEventListener("click", () => {
   ];
   
 
+  // Montar os arrays com dados para salvar
+  const dadosListaVitima = [
+    nomeVitima, //0
+    telefoneVitima, //1
+    rgVitima, //2
+    cpfVitima, //3
+    enderecoVitima, //4
+    ocupacaoVitima, //5
+    escolaridadeVitima, //6
+    corVitima, //7
+    estadoCivilVitima, //8
+    nomeMaeVitima, //9
+    nomePaiVitima, //10
+    dataNascimentoVitima, //11
+    medidaProtetiva, //12
+    redsOrigem  //13
+    
+  ];
 
-  if(!rgAutorOutro.trim()) {
-    alert("Preencha o RG do autor.");
-    return;
+
+  
+
+
+  if(rgVitima == "NULL") {
+
+    let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o RG da vítima!"
+    mostrarAlerta();
+
+
+  } else if(rgAutorOutro == "NULL") {
+   let changedElement = document.getElementById("elementoRG");
+  changedElement.textContent = "É preciso preencher o RG do autor!"  
+    mostrarAlerta();
+
+} else {  
+    salvarDadosEmListaAutor("DADOSGERAIS", dadosListaAutor);
+ AtualizarDados();
+
   }
-  salvarDadosEmListaAutor("DADOSGERAIS", dadosListaAutor);
-
   // Salvar dados no Firebase
  //salvarDadosEmLista("DADOS", dadosLista);
 
 
 
- AtualizarDados();
 
   
 
