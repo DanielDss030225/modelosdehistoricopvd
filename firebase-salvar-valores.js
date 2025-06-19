@@ -139,18 +139,18 @@ let changedElement = document.getElementById("elementoRG");
 
 function salvarDadosEmListaComplementar(caminho, dados) {
 
-   const rgvitimavalor01 = document.getElementById("rgvitima")?.value;
+   const rgvitimavalor01 = document.getElementById("rgautor")?.value;
   const nomevitima = document.getElementById("nomevitima")?.value;
 let changedElement = document.getElementById("elementoRG");
-  changedElement.textContent = "É preciso preencher o NOME e RG da vítima!"
+  changedElement.textContent = "É preciso preencher o NOME e RG do autor!"
 
   if (!rgvitimavalor01) {
     mostrarAlerta();
-    console.error("O ID da vítima está vazio.");
+    console.error("O ID do autor está vazio.");
     return;
   } else if (!nomevitima) {
     mostrarAlerta();
-    console.error("O ID da vítima está vazio.");
+    console.error("O ID do autor está vazio.");
     
   } else {
           mostrarNotificacao("✅ Dados complementares salvos/atualizados com sucesso!");

@@ -31,109 +31,55 @@ const db = getDatabase(app);
   let corVitima = document.querySelector('select[id="cor"]');
   let estadoCivilVitima = document.querySelector('select[id="estadoCivil"]');
 
+function mostrarNotificacao(mensagem, tempo = 2000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "red"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
 
+  document.body.appendChild(notif);
 
-// Função principal
-window.obterDadosDoFirebase = async function (path, dados) {
-    
-  const rg = rgVitima.value;
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
 
-
-
-  if (!rg){ 
-
-  } else {
-     mostrarCarregamento();
-  };
-
-
-  const snapshot = await get(ref(db, `DADOS/${rg}`));
-  ocultarCarregamento();
-
-  const valor = snapshot.val();
-  if (!valor) {
-   nomeVitima.value = "";
- 
-  };
-
-
-
-
-
-  let entrada;
-  try {
-    entrada = JSON.parse(valor);
-  } catch (e) {
-    return console.error("Erro ao converter dados JSON", e);
-  }
-
-  // Converte para array de strings
-  const dadosArray = Array.isArray(entrada)
-    ? entrada.map(item => item === null ? "NULL" : String(item))
-    : new Array(25).fill("");
-
-  // Função genérica para atualizar selects
-  function atualizarSelect(id, valor) {
-    const select = document.querySelector(`select[id="${id}"]`);
-    if (select && valor !== "NULL") {
-      const valorLimpo = valor.trim();
-      const optionExists = Array.from(select.options).some(opt => opt.value.trim() === valorLimpo);
-      if (optionExists) select.value = valorLimpo;
-      else console.warn(`Valor "${valorLimpo}" não encontrado nas opções de '${id}'.`);
-    }
-  }
-
-  // Função genérica para atualizar inputs
-  function atualizarInput(id, valor) {
-    const input = document.getElementById(id);
-    if (input) input.value = (valor === "NULL") ? "" : valor;
-  }
-
-  // Atualiza SELECTs
-  atualizarSelect("estadoCivilAutor", dadosArray[18]);
-  atualizarSelect("corAutor", dadosArray[17]);
-  atualizarSelect("escolaridadeAutor", dadosArray[16]);
-  atualizarSelect("escolaridadeVitima", dadosArray[13]);
-  atualizarSelect("cor", dadosArray[14]);
-  atualizarSelect("estadoCivil", dadosArray[15]);
-
-  // Atualiza INPUTs
-  const mapeamentoInputs = {
-    nomeMaeVitima: 19,
-    nomePaiVitima: 20,
-    datanascimentovitima: 21,
-    nomeMaeAutor: 22,
-    nomePaiAutor: 23,
-    datanascimentoautor: 24,
-    nomevitima: 0,
-    cpfvitima: 7,
-    enderecoVitima: 9,
-    ocupacaoVitima: 11,
-    telefonevitima: 1,
-    nomeautor: 3,
-    enderecoAutor: 10,
-    ocupacaoAutor: 12,
-    cpfautor: 8,
-    telefoneautor: 4,
-    rgautor: 2,
-    redsorigem: 5,
-    medidaprotetiva: 6
-  };
-
-setTimeout(getIfNot(), 500);
-
-  for (const [id, indice] of Object.entries(mapeamentoInputs)) {
-    atualizarInput(id, dadosArray[indice] || "");
-  }
-};
-
-function getIfNot() {
- let nomeMaeVitimay = nomeMaeVitima.value
-  if (!nomeMaeVitimay) {
-obterDadosVitima();
-  };
 }
 
+function mostrarNotificacao2(mensagem, tempo = 2000) {
+  const notif = document.createElement("div");
+  notif.textContent = mensagem;
+  notif.style.position = "fixed";
+  notif.style.bottom = "20px";
+  notif.style.right = "20px";
+  notif.style.background = "#28a745"; // verde sucesso
+  notif.style.color = "#fff";
+  notif.style.padding = "10px 15px";
+  notif.style.borderRadius = "5px";
+  notif.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+  notif.style.zIndex = "10000";
+  notif.style.fontWeight = "bold";
+  notif.style.fontSize = "14px";
+  notif.style.transition = "opacity 0.5s ease";
+
+  document.body.appendChild(notif);
+
+  setTimeout(() => {
+    notif.style.opacity = "0";
+    setTimeout(() => document.body.removeChild(notif), 500);
+  }, tempo);
+
+}
 
 //function to obtain dados of victim
 
@@ -145,15 +91,40 @@ window.obterDadosVitima = async function (path, dados) {
   
   if (!rg){ 
 
+    nomeVitima.value = "";
+    telefoneVitima.value = "";
+    rgVitima.value = "";
+    cpfVitima.value = "";
+    enderecoVitima.value = "";
+    ocupacaoVitima.value = "";
+    escolaridadeVitima.value = "";
+    corVitima.value = "";
+    estadoCivilVitima.value = "";
+    nomeMaeVitima.value = "";
+    nomePaiVitima.value = "";
+    dataNascimentoVitima.value = "";
+
+
   } else {
      mostrarCarregamento();
-  };
 
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   ocultarCarregamento();
 
+
   const valor = snapshot.val();
-  if (!valor) return console.error("ERRO: RG Não cadastrado no sistema!");
+  if (!valor) { 
+
+          mostrarNotificacao("❌ RG: "+ rg +", não cadastrado no sistema!");
+  
+  
+  
+  } else {
+              mostrarNotificacao2("✅ Dados da vítima preenchidos com sucesso!");
+
+  };
+
+
 
   let entrada;
   try {
@@ -205,7 +176,9 @@ window.obterDadosVitima = async function (path, dados) {
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
   }
-};
+  
+};  };
+
 //NECESSÁRIO AJUSTAR A ORDEM DOS INDICES NOS INPUTS
 
 
@@ -218,15 +191,44 @@ window.obterDadosAutor = async function (path, dados) {
   const rg = rgAutorOutro.value
   
   if (!rg){ 
+  
+nomeAutor.value = "";
+telefoneAutor.value = "";
+    cpfAutor.value = "";
+    enderecoAutor.value = "";
+    ocupacaoAutor.value = "";
+    escolaridadeAutor.value = "";
+    corAutor.value = "";
+    estadoCivilAutor.value = "";
+    nomeMaeAutor.value = "";
+    nomePaiAutor.value = "";
+    dataNascimentoAutor.value = "";
+    
+
+
 
   } else {
      mostrarCarregamento();
-  };
+
   const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
   ocultarCarregamento();
 
-  const valor = snapshot.val();
-  if (!valor) return console.error("ERRO: RG Não cadastrado no sistema!");
+
+ const valor = snapshot.val();
+  if (!valor) { 
+
+          mostrarNotificacao("❌ RG: "+ rg +", não cadastrado no sistema!");
+  
+  
+  
+  } else {
+              mostrarNotificacao2("✅ Dados do autor preenchidos com sucesso!");
+
+  };
+
+
+
+  
 
   let entrada;
   try {
@@ -276,19 +278,24 @@ window.obterDadosAutor = async function (path, dados) {
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
   };
-};
+};  };
 //NECESSÁRIO AJUSTAR A ORDEM DOS INDICES NOS INPUTS
 
 
 
 window.obterDadosComplemetares = async function (path, dados) {
-  const rg = rgVitima.value;
-  if (!rg){ 
-    alert("Digite o RG da vítima para ver os dados complementares salvos do casal.")
+  const rg = rgAutorOutro.value;
+ 
+  
 
+
+  if (!rg){ 
+    
+medidaProtetiva.value = "";
+    redsOrigem.value = "";
   } else {
      mostrarCarregamento();
-  };
+
 
   const snapshot = await get(ref(db, `DADOSCOMPLEMENTARES/${rg}`));
   ocultarCarregamento();
@@ -329,12 +336,12 @@ window.obterDadosComplemetares = async function (path, dados) {
 
   const mapeamentoInputs = {
   
-   redsorigem: 2,
-   medidaprotetiva: 3
+   redsorigem: 3,
+   medidaprotetiva: 2
   };
 
 
 for (const [id, indice] of Object.entries(mapeamentoInputs)) {
     atualizarInput(id, dadosArray[indice] || "");
   }
-};
+};  };
