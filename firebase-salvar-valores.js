@@ -162,6 +162,9 @@ let changedElement = document.getElementById("elementoRG");
     .then(() => console.log("Dados salvos com sucesso no Realtime Database!"))
     .catch(erro => console.error("Erro ao salvar dados:", erro));}
 };
+
+
+
 function mostrarNotificacao(mensagem, tempo = 2000) {
   const notif = document.createElement("div");
   notif.textContent = mensagem;

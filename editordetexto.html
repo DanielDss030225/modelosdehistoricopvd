@@ -188,6 +188,7 @@
  
     
 
+
       
       <fieldset> 
 
@@ -297,7 +298,7 @@
 </fieldset>
 
     <fieldset>
-      <legend> Dados complementares</legend>
+      <legend> Dados complementares do casal</legend>
 
 <ul> 
 
@@ -321,6 +322,106 @@
  
  
 
+
+    <fieldset> 
+      
+      <legend> Digite os dados da testemunha</legend>
+       
+      <ul> 
+   <li>     
+     <input onblur="this.value = this.value.trim(), obterDadostestemunha();" class="tamanhorg" id="rgtestemunha"  type="number" placeholder="RG DA TESTEMUNHA" >                                  
+ </li> 
+ <li> 
+  <input  onblur="this.value = this.value.trim();" id="nometestemunha" type="text" placeholder="NOME DA TESTEMUNHA" >                  
+ </li>
+  <li> 
+  <input  onblur="this.value = this.value.trim();" id="cpftestemunha" type="number" placeholder="CPF DA TESTEMUNHA" >                  
+ </li>
+       <li>
+        <input onblur="this.value = this.value.trim();"  class="ocorrencia" id="telefonetestemunha" type="tel" placeholder="TELEFONE DA TESTEMUNHA" > 
+       </li>   
+       </ul>  
+
+
+
+<ul> 
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="ocupacaotestemunha" type="text" placeholder="OCUPAÇÃO ATUAL" > 
+
+  </li>
+     <li class="ulEndereco">
+    <input  onblur="this.value = this.value.trim();" class="ocorrencia" id="enderecotestemunha" type="text" placeholder="ENDEREÇO DA TESTEMUNHA" > 
+
+  </li>
+</ul> 
+
+
+
+  <ul> 
+  <li class="ulEndereco">
+     <input onblur="this.value = this.value.trim()" class="tamanhorg" id="nomeMaetestemunha"  type="text" placeholder="NOME DA MÃE" >                                  
+ </li> 
+  <li class="ulEndereco">
+  <input  onblur="this.value = this.value.trim();" id="nomePaitestemunha" type="text" placeholder="NOME DO PAI" >                  
+ </li>
+<li class="ulEndereco">
+  <input 
+    onblur="this.value = this.value.trim();"  
+    class="ocorrencia" 
+    id="datanascimentotestemunha" 
+    type="date" 
+    placeholder="DATA DE NASCIMENTO"
+  >
+</li>
+   </ul>  
+
+
+<ul> 
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="escolaridadetestemunha">
+    <option value="">ESCOLARIDADE</option>
+    <option value="1">ANALFABETO (0100)</option>
+    <option value="2">ALFABETIZADO (0200)</option>
+    <option value="3">ENSINO FUNDAMENTAL INCOMPLETO (8 ANOS ESTUDO) (0300)</option>
+    <option value="4">ENSINO FUNDAMENTAL COMPLETO (8 ANOS ESTUDO) (0400)</option>
+    <option value="5">ENSINO MEDIO INCOMPLETO ( 2º GRAU) (0500)</option>
+    <option value="6">ENSINO MEDIO COMPLETO (2º GRAU) (0600)</option>
+    <option value="7">SUPERIOR INCOMPLETO (0700)</option>
+    <option value="8">SUPERIOR COMPLETO (0800)</option>
+     <option value="12">MESTRADO (0910)</option>
+      <option value="13">DOUTORADO (0920)</option>
+       <option value="10">ESCOLARIDADE - IGNORADA (9800)</option>
+        <option value="11">OUTROS - ESCOLARIDADE (9900)</option>
+  </select>
+</li>
+
+       <li class="ulEndereco">
+  <select class="ocorrencia" id="cortestemunha">
+    <option value="">COR/ RAÇA</option>
+    <option value="2">AMARELA (0200)</option>
+    <option value="3">BRANCA (0300)</option>
+    <option value="7">PRETO (0400)</option>
+    <option value="5">PARDA (0500)</option>
+    <option value="8">INDÍGENA (0700)</option>
+    <option value="6">IGNORADA (9800)</option>
+   
+  </select>
+</li>
+  <li class="ulEndereco">
+  <select class="ocorrencia" id="estadoCiviltestemunha">
+    <option value="">Estado Civil</option>
+    <option value="2">CASADO (0200)</option>
+    <option value="3">DIVORCIADO (0300)</option>
+    <option value="4">SEPARADO JUDICIALMENTE (0400)</option>
+    <option value="5">SOLTEIRO (0500)</option>
+    <option value="6">VIUVO (0600)</option>
+    <option value="7">UNIAO ESTAVEL (0700)</option>
+    <option value="8">ESTADO CIVIL - NAO DECLARADO (9700)</option>
+    <option value="9">ESTADO CIVIL - IGNORADO (9800)</option>
+  </select>
+</li>
+</ul> 
+      </fieldset>
 
  
 

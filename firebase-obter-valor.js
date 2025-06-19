@@ -31,6 +31,23 @@ const db = getDatabase(app);
   let corVitima = document.querySelector('select[id="cor"]');
   let estadoCivilVitima = document.querySelector('select[id="estadoCivil"]');
 
+  let nometestemunha = document.getElementById("nometestemunha");
+  let rgtestemunha = document.getElementById("rgtestemunha");
+  let cpftestemunha = document.getElementById("cpftestemunha");
+  let nomeMaetestemunha = document.getElementById("nomeMaetestemunha");
+  let nomePaitestemunha = document.getElementById("nomePaitestemunha");
+  let dataNascimentotestemunha = document.getElementById("datanascimentotestemunha");
+  let telefonetestemunha = document.getElementById("telefonetestemunha");
+  let enderecotestemunha = document.getElementById("enderecotestemunha");
+  let ocupacaotestemunha = document.getElementById("ocupacaotestemunha");
+  let escolaridadetestemunha = document.querySelector('select[id="escolaridadetestemunha"]');
+  let cortestemunha = document.querySelector('select[id="cortestemunha"]');
+  let estadoCiviltestemunha = document.querySelector('select[id="estadoCiviltestemunha"]');
+
+
+
+
+
 function mostrarNotificacao(mensagem, tempo = 2000) {
   const notif = document.createElement("div");
   notif.textContent = mensagem;
@@ -80,6 +97,9 @@ function mostrarNotificacao2(mensagem, tempo = 2000) {
   }, tempo);
 
 }
+
+
+
 
 //function to obtain dados of victim
 
@@ -180,6 +200,111 @@ for (const [id, indice] of Object.entries(mapeamentoInputs)) {
 };  };
 
 //NECESSÁRIO AJUSTAR A ORDEM DOS INDICES NOS INPUTS
+
+
+
+
+//function to obtain dados of victim
+
+window.obterDadostestemunha = async function (path, dados) {
+
+      obterDadosComplemetares();
+
+  const rg = rgtestemunha.value;
+  
+  if (!rg){ 
+
+    nometestemunha.value = "";
+    telefonetestemunha.value = "";
+    rgtestemunha.value = "";
+    cpftestemunha.value = "";
+    enderecotestemunha.value = "";
+    ocupacaotestemunha.value = "";
+    escolaridadetestemunha.value = "";
+    cortestemunha.value = "";
+    estadoCiviltestemunha.value = "";
+    nomeMaetestemunha.value = "";
+    nomePaitestemunha.value = "";
+    dataNascimentotestemunha.value = "";
+
+
+  } else {
+     mostrarCarregamento();
+
+  const snapshot = await get(ref(db, `DADOSGERAIS/${rg}`));
+  ocultarCarregamento();
+
+
+  const valor = snapshot.val();
+  if (!valor) { 
+
+          mostrarNotificacao("❌ RG: "+ rg +", não cadastrado no sistema!");
+  
+  
+  
+  } else {
+              mostrarNotificacao2("✅ Dados da testemunha preenchidos com sucesso!");
+
+  };
+
+
+
+  let entrada;
+  try {
+    entrada = JSON.parse(valor);
+  } catch (e) {
+    return console.error("Erro ao converter dados JSON", e);
+  };
+
+  // Converte para array de strings
+  const dadosArray = Array.isArray(entrada)
+    ? entrada.map(item => item === null ? "NULL" : String(item))
+    : new Array(25).fill("");
+  // Função genérica para atualizar selects
+  function atualizarSelect(id, valor) {
+    const select = document.querySelector(`select[id="${id}"]`);
+    if (select && valor !== "NULL") {
+      const valorLimpo = valor.trim();
+      const optionExists = Array.from(select.options).some(opt => opt.value.trim() === valorLimpo);
+      if (optionExists) select.value = valorLimpo;
+      else console.warn(`Valor "${valorLimpo}" não encontrado nas opções de '${id}'.`);
+    }
+  };
+
+  // Função genérica para atualizar inputs
+  function atualizarInput(id, valor) {
+    const input = document.getElementById(id);
+    if (input) input.value = (valor === "NULL") ? "" : valor;
+  };
+
+
+
+ // Atualiza SELECTs
+  atualizarSelect("escolaridadetestemunha", dadosArray[6]);
+  atualizarSelect("cortestemunha", dadosArray[7]);
+  atualizarSelect("estadoCiviltestemunha", dadosArray[8]);
+  // Atualiza INPUTs
+  const mapeamentoInputs = {
+    nomeMaetestemunha: 9,
+    nomePaitestemunha: 10,
+    datanascimentotestemunha: 11,
+    nometestemunha: 0,
+    cpftestemunha: 3,
+    enderecotestemunha: 4,
+    ocupacaotestemunha: 5,
+    telefonetestemunha: 1,
+    
+  };
+
+for (const [id, indice] of Object.entries(mapeamentoInputs)) {
+    atualizarInput(id, dadosArray[indice] || "");
+  }
+  
+};  };
+
+//NECESSÁRIO AJUSTAR A ORDEM DOS INDICES NOS INPUTS
+
+
 
 
 
